@@ -1,0 +1,174 @@
+
+/* GOOGLE FONT */
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700;800&display=swap');
+
+/* GLOBAL */
+body {
+  margin: 0;
+  font-family: 'Inter', sans-serif;
+  background: #ffffff;
+  color: #000000;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+/* CENTER WRAPPER */
+.container {
+  display: flex;
+  justify-content: center;
+  padding: 40px;
+}
+
+/* MAIN CARD */
+.card {
+  width: 100%;
+  max-width: 900px;
+  background: #ffffff;
+  border: 1px solid #e5e5e5;
+  border-radius: 14px;
+  padding: 25px;
+  box-shadow: 0 2px 10px rgba(0, 0, 0, 0.04);
+}
+
+/* TITLE */
+.title {
+  text-align: center;
+  font-size: 36px;
+  font-weight: 800;
+  color: #000000 !important;
+  margin-bottom: 20px;
+  letter-spacing: -0.5px;
+}
+
+/* LABEL */
+.label {
+  display: block;
+  margin-top: 12px;
+  font-weight: 600;
+  font-size: 14px;
+  color: #000000;
+}
+
+/* INPUT */
+.input {
+  width: 100%;
+  padding: 12px;
+  margin-top: 6px;
+  border-radius: 8px;
+  border: 1px solid #d0d0d0;
+  font-size: 14px;
+  color: #000000;
+  outline: none;
+  background: #ffffff;
+}
+
+/* BUTTON */
+.btn {
+  width: 100%;
+  margin-top: 15px;
+  padding: 12px;
+  background: #000000;
+  color: #ffffff;
+  border: none;
+  border-radius: 8px;
+  font-weight: 600;
+  cursor: pointer;
+}
+
+/* OUTPUT AREA */
+.output {
+  margin-top: 20px;
+}
+
+/* BLOCK */
+.block {
+  border: 1px solid #e5e5e5;
+  border-radius: 10px;
+  padding: 18px;
+  margin-bottom: 15px;
+  background: #ffffff;
+}
+
+/* MARKDOWN TEXT FORCE BLACK */
+.markdown-wrapper,
+.markdown-wrapper * {
+  color: #000000 !important;
+}
+
+/* HEADINGS */
+.markdown-wrapper h1,
+.markdown-wrapper h2,
+.markdown-wrapper h3 {
+  color: #000000 !important;
+  font-weight: 700;
+}
+
+/* PARAGRAPH */
+.markdown-wrapper p,
+.markdown-wrapper li {
+  color: #000000 !important;
+  line-height: 1.6;
+}
+
+/* INLINE CODE */
+.markdown-wrapper code {
+  background: #f0f0f0;
+  padding: 3px 5px;
+  border-radius: 4px;
+  color: #000000;
+}
+
+/* CODE BLOCK WRAPPER */
+.code-wrapper {
+  position: relative;
+  margin: 12px 0;
+}
+
+/* CODE BLOCK */
+pre {
+  background: #f5f5f5;
+  padding: 15px;
+  border-radius: 8px;
+  overflow-x: auto;
+  font-size: 13px;
+}
+
+/* COPY BUTTON FOR CODE */
+.code-copy-btn {
+  position: absolute;
+  right: 10px;
+  top: 10px;
+  background: #000000;
+  color: #ffffff;
+  border: none;
+  padding: 5px 8px;
+  font-size: 12px;
+  border-radius: 5px;
+  cursor: pointer;
+  z-index: 5;
+}
+
+/* FINAL COPY BUTTON (BOTTOM) */
+.final-copy {
+  display: flex;
+  justify-content: center;
+  margin-top: 20px;
+}
+
+.final-copy button {
+  background: #000000;
+  color: #ffffff;
+  border: none;
+  padding: 10px 14px;
+  border-radius: 8px;
+  font-weight: 600;
+  cursor: pointer;
+}
+
+/* LOADING */
+.loading {
+  text-align: center;
+  margin-top: 10px;
+  font-weight: 600;
+  color: #000000;
+}
