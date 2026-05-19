@@ -1,150 +1,123 @@
-import React, { useState } from "react";
-import ReactMarkdown from "react-markdown";
-import remarkGfm from "remark-gfm";
-import rehypeHighlight from "rehype-highlight";
-import "./markdown.css";
+import { useState } from "react";
+import "./App.css";
 
-function App() {
+export default function App() {
   const [domain, setDomain] = useState("");
-  const [tech, setTech] = useState("");
-  const [level, setLevel] = useState("Medium");
-
-  const [output, setOutput] = useState("");
-  const [view, setView] = useState("");
+  const [technology, setTechnology] = useState("");
+  const [level, setLevel] = useState("");
+  const [data, setData] = useState(null);
   const [loading, setLoading] = useState(false);
 
-  // 🚀 COST OPTIMIZED GENERATE
+  const API_URL = "https://ai-project-generator-backend.onrender.com/generate";
+
+  // ⚡ SINGLE REQUEST ONLY (cost optimized)
   const generate = async () => {
-    if (loading) return;
-    if (!domain || !tech) return alert("Fill all fields");
+    if (!domain || !technology || !level) return alert("Fill all fields");
 
     setLoading(true);
-    setView("");
+    setData(null);
 
     try {
-      const res = await fetch("http://127.0.0.1:8000/generate", {
+      const res = await fetch(API_URL, {
         method: "POST",
         headers: { "Content-Type": "application/json" },
-        body: JSON.stringify({
-          domain,
-          technology: tech,
-          level,
-        }),
+        body: JSON.stringify({ domain, technology, level }),
       });
 
-      const data = await res.json();
+      const json = await res.json();
 
-      if (data.success) {
-        setOutput(data.result);
-        setView(data.result);
-      } else {
-        setView(data.message);
-      }
+      // ⚡ NO EXTRA API CALLS (IMPORTANT FOR COST)
+      const parts = json.result.split("\n");
+
+      setData({
+        title: parts[0] || "",
+        idea: parts[1] || "",
+        features: parts[2] || "",
+        steps: parts[3] || "",
+        code: parts.slice(4).join("\n"),
+      });
+
     } catch (err) {
-      setView("Server Error");
+      alert("Error generating project");
     }
 
     setLoading(false);
   };
 
-  // 📋 COPY FULL PROJECT (BOTTOM ONLY)
-  const copyAll = () => {
-    navigator.clipboard.writeText(output);
-    alert("Full Project Copied");
-  };
-
-  // 📋 COPY CODE ONLY
-  const CodeBlock = ({ node, inline, className, children, ...props }) => {
-    const codeText = String(children).replace(/\n$/, "");
-
-    const copyCode = () => {
-      navigator.clipboard.writeText(codeText);
-      alert("Code Copied");
-    };
-
-    return !inline ? (
-      <div className="code-wrapper">
-        <button className="code-copy-btn" onClick={copyCode}>
-          Copy Code
-        </button>
-        <pre className={className}>
-          <code {...props}>{children}</code>
-        </pre>
-      </div>
-    ) : (
-      <code className={className} {...props}>
-        {children}
-      </code>
-    );
+  const copy = (text) => {
+    navigator.clipboard.writeText(text);
   };
 
   return (
-    <div className="container">
+    <div className="app">
+
+      {/* HEADER */}
+      <div className="header">
+        <h1>⚡ AI Project Generator</h1>
+        <p>Build Final Year Projects in Seconds 🚀</p>
+      </div>
+
+      {/* INPUT BOX */}
       <div className="card">
-
-        {/* TITLE */}
-        <h1 className="title">AI Project Generator</h1>
-
-        {/* INPUTS */}
-        <label className="label">Department</label>
         <input
-          className="input"
-          value={domain}
+          placeholder="Department (CSE / ECE / IT)"
           onChange={(e) => setDomain(e.target.value)}
-          placeholder="CSE / ECE / IT / MECH"
         />
 
-        <label className="label">Technology</label>
         <input
-          className="input"
-          value={tech}
-          onChange={(e) => setTech(e.target.value)}
-          placeholder="AI / IoT / Cloud / Blockchain"
+          placeholder="Technology (AI / IoT / Cloud)"
+          onChange={(e) => setTechnology(e.target.value)}
         />
 
-        <label className="label">Level</label>
-        <select
-          className="input"
-          value={level}
-          onChange={(e) => setLevel(e.target.value)}
-        >
+        <select onChange={(e) => setLevel(e.target.value)}>
+          <option>Select Level</option>
           <option>Easy</option>
           <option>Medium</option>
           <option>Hard</option>
         </select>
 
-        {/* GENERATE */}
-        <button className="btn" onClick={generate} disabled={loading}>
-          {loading ? "Generating..." : "Generate Project"}
+        <button onClick={generate} disabled={loading}>
+          {loading ? "Generating..." : "🚀 Generate (1 API Call)"}
         </button>
-
-        {/* OUTPUT */}
-        {view && (
-          <div className="output">
-
-            <div className="block">
-              <ReactMarkdown
-                remarkPlugins={[remarkGfm]}
-                rehypePlugins={[rehypeHighlight]}
-                components={{
-                  code: CodeBlock,
-                }}
-              >
-                {view}
-              </ReactMarkdown>
-            </div>
-
-            {/* FINAL COPY ONLY */}
-            <div className="final-copy">
-              <button onClick={copyAll}>Copy Full Project</button>
-            </div>
-
-          </div>
-        )}
-
       </div>
+
+      {/* OUTPUT */}
+      {data && (
+        <div className="output">
+
+          <div className="box">
+            <h2>Title</h2>
+            <p>{data.title}</p>
+            <button onClick={() => copy(data.title)}>Copy</button>
+          </div>
+
+          <div className="box">
+            <h2>Idea</h2>
+            <p>{data.idea}</p>
+            <button onClick={() => copy(data.idea)}>Copy</button>
+          </div>
+
+          <div className="box">
+            <h2>Features</h2>
+            <p>{data.features}</p>
+            <button onClick={() => copy(data.features)}>Copy</button>
+          </div>
+
+          <div className="box">
+            <h2>Steps</h2>
+            <p>{data.steps}</p>
+            <button onClick={() => copy(data.steps)}>Copy</button>
+          </div>
+
+          <div className="box code">
+            <h2>Code</h2>
+            <pre>{data.code}</pre>
+            <button onClick={() => copy(data.code)}>Copy Code</button>
+          </div>
+
+        </div>
+      )}
+
     </div>
   );
 }
-
-export default App;

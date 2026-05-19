@@ -1,174 +1,173 @@
-
-/* GOOGLE FONT */
-@import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700;800&display=swap');
-
-/* GLOBAL */
-body {
+* {
   margin: 0;
-  font-family: 'Inter', sans-serif;
-  background: #ffffff;
-  color: #000000;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: "Arial", sans-serif;
 }
 
-/* CENTER WRAPPER */
-.container {
-  display: flex;
-  justify-content: center;
-  padding: 40px;
-}
-
-/* MAIN CARD */
-.card {
-  width: 100%;
-  max-width: 900px;
-  background: #ffffff;
-  border: 1px solid #e5e5e5;
-  border-radius: 14px;
-  padding: 25px;
-  box-shadow: 0 2px 10px rgba(0, 0, 0, 0.04);
-}
-
-/* TITLE */
-.title {
-  text-align: center;
-  font-size: 36px;
-  font-weight: 800;
-  color: #000000 !important;
-  margin-bottom: 20px;
-  letter-spacing: -0.5px;
-}
-
-/* LABEL */
-.label {
-  display: block;
-  margin-top: 12px;
-  font-weight: 600;
-  font-size: 14px;
-  color: #000000;
-}
-
-/* INPUT */
-.input {
-  width: 100%;
-  padding: 12px;
-  margin-top: 6px;
-  border-radius: 8px;
-  border: 1px solid #d0d0d0;
-  font-size: 14px;
-  color: #000000;
-  outline: none;
-  background: #ffffff;
-}
-
-/* BUTTON */
-.btn {
-  width: 100%;
-  margin-top: 15px;
-  padding: 12px;
-  background: #000000;
+body {
+  background: #0b0f14;
   color: #ffffff;
-  border: none;
-  border-radius: 8px;
-  font-weight: 600;
-  cursor: pointer;
+  min-height: 100vh;
 }
 
-/* OUTPUT AREA */
+/* MAIN APP WRAPPER */
+.app {
+  max-width: 950px;
+  margin: auto;
+  padding: 20px;
+}
+
+/* HEADER */
+.header {
+  text-align: center;
+  padding: 20px 10px;
+}
+
+.header h1 {
+  font-size: 32px;
+  font-weight: bold;
+  color: #00ff88;
+}
+
+.header p {
+  color: #9aa4b2;
+  font-size: 14px;
+  margin-top: 5px;
+}
+
+/* INPUT CARD */
+.card {
+  background: #121a24;
+  padding: 20px;
+  border-radius: 14px;
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+  border: 1px solid #1f2a38;
+}
+
+/* INPUTS */
+input, select {
+  padding: 12px;
+  border-radius: 10px;
+  border: 1px solid #1f2a38;
+  background: #0f141b;
+  color: #fff;
+  font-size: 14px;
+  outline: none;
+}
+
+input:focus, select:focus {
+  border: 1px solid #00ff88;
+}
+
+/* MAIN BUTTON */
+button {
+  padding: 12px;
+  border: none;
+  border-radius: 10px;
+  background: #00ff88;
+  color: #000;
+  font-weight: bold;
+  cursor: pointer;
+  transition: 0.2s ease;
+}
+
+button:hover {
+  opacity: 0.9;
+}
+
+button:disabled {
+  background: #444;
+  cursor: not-allowed;
+}
+
+/* OUTPUT SECTION */
 .output {
   margin-top: 20px;
+  display: flex;
+  flex-direction: column;
+  gap: 14px;
 }
 
-/* BLOCK */
-.block {
-  border: 1px solid #e5e5e5;
-  border-radius: 10px;
-  padding: 18px;
-  margin-bottom: 15px;
-  background: #ffffff;
-}
-
-/* MARKDOWN TEXT FORCE BLACK */
-.markdown-wrapper,
-.markdown-wrapper * {
-  color: #000000 !important;
+/* VIRAL OUTPUT BOX */
+.box {
+  background: #121a24;
+  padding: 16px;
+  border-radius: 12px;
+  border: 1px solid #1f2a38;
+  position: relative;
 }
 
 /* HEADINGS */
-.markdown-wrapper h1,
-.markdown-wrapper h2,
-.markdown-wrapper h3 {
-  color: #000000 !important;
-  font-weight: 700;
+.box h2 {
+  color: #00ff88;
+  font-size: 15px;
+  margin-bottom: 8px;
 }
 
-/* PARAGRAPH */
-.markdown-wrapper p,
-.markdown-wrapper li {
-  color: #000000 !important;
-  line-height: 1.6;
-}
-
-/* INLINE CODE */
-.markdown-wrapper code {
-  background: #f0f0f0;
-  padding: 3px 5px;
-  border-radius: 4px;
-  color: #000000;
-}
-
-/* CODE BLOCK WRAPPER */
-.code-wrapper {
-  position: relative;
-  margin: 12px 0;
+/* TEXT */
+.box p {
+  color: #e5e5e5;
+  font-size: 14px;
+  line-height: 1.5;
 }
 
 /* CODE BLOCK */
-pre {
-  background: #f5f5f5;
-  padding: 15px;
-  border-radius: 8px;
+.code pre {
+  background: #000;
+  padding: 12px;
+  border-radius: 10px;
   overflow-x: auto;
+  color: #00ff88;
   font-size: 13px;
+  border: 1px solid #1f2a38;
 }
 
-/* COPY BUTTON FOR CODE */
-.code-copy-btn {
+/* COPY BUTTON (BOX LEVEL) */
+.box button {
   position: absolute;
-  right: 10px;
   top: 10px;
-  background: #000000;
-  color: #ffffff;
-  border: none;
-  padding: 5px 8px;
-  font-size: 12px;
-  border-radius: 5px;
-  cursor: pointer;
-  z-index: 5;
+  right: 10px;
+  font-size: 11px;
+  padding: 5px 10px;
+  border-radius: 6px;
+  background: #00ff88;
+  color: #000;
 }
 
-/* FINAL COPY BUTTON (BOTTOM) */
-.final-copy {
-  display: flex;
-  justify-content: center;
-  margin-top: 20px;
-}
-
-.final-copy button {
-  background: #000000;
-  color: #ffffff;
-  border: none;
-  padding: 10px 14px;
-  border-radius: 8px;
-  font-weight: 600;
+/* COPY ALL BUTTON (if used) */
+.copyAll {
+  width: 100%;
+  padding: 10px;
+  background: #00ff88;
+  color: #000;
+  font-weight: bold;
+  border-radius: 10px;
+  margin-bottom: 10px;
   cursor: pointer;
 }
 
-/* LOADING */
-.loading {
-  text-align: center;
-  margin-top: 10px;
-  font-weight: 600;
-  color: #000000;
+/* MOBILE RESPONSIVE */
+@media (max-width: 600px) {
+  .app {
+    padding: 15px;
+  }
+
+  .header h1 {
+    font-size: 24px;
+  }
+
+  .card {
+    padding: 15px;
+  }
+
+  .box {
+    padding: 14px;
+  }
+
+  button {
+    font-size: 13px;
+  }
 }
