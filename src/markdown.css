@@ -1,171 +1,173 @@
 @import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap');
 
-/* ======================
-   GLOBAL
-====================== */
-* {
-  margin: 0;
-  padding: 0;
-  box-sizing: border-box;
+*{
+  margin:0;
+  padding:0;
+  box-sizing:border-box;
 }
 
-body {
-  font-family: "Inter", sans-serif;
-  background: #fff;
-  color: #000;
+body{
+  font-family:"Inter",sans-serif;
+  background:#efefef;
+  color:#000;
 }
 
-/* ======================
-   PAGE
-====================== */
-.page {
-  max-width: 850px;
-  margin: auto;
-  padding: 30px 18px;
+/* PAGE */
+.page{
+  width:100%;
+  padding:22px;
 }
 
-/* ======================
-   HEADER
-====================== */
-.header {
-  text-align: center;
-  margin-bottom: 25px;
-}
-
-.header h1 {
-  font-size: 30px;
-  font-weight: 700;
-}
-
-.header p {
-  font-size: 14px;
-  color: #444;
-}
-
-/* ======================
-   INPUT CARD
-====================== */
-.input-card {
-  border: 1px solid #e5e5e5;
-  border-radius: 14px;
-  padding: 18px;
-  background: #fff;
-  margin-bottom: 22px;
-}
-
-/* GRID */
-.grid {
-  display: grid;
-  grid-template-columns: repeat(3, 1fr);
-  gap: 12px;
-}
-
-/* FIELD */
-.field {
-  display: flex;
-  flex-direction: column;
-  gap: 6px;
-}
-
-.field label {
-  font-size: 12px;
-  font-weight: 600;
-  color: #333;
-  text-transform: uppercase;
-}
-
-/* SELECT BOX */
-select {
-  padding: 10px;
-  border: 1px solid #ddd;
-  border-radius: 8px;
-  background: #fff;
-  color: #000;
-  font-size: 14px;
-  outline: none;
-}
-
-select:focus {
-  border-color: #000;
-}
-
-/* BUTTON */
-.btn {
-  width: 100%;
-  margin-top: 14px;
-  padding: 12px;
-  border-radius: 10px;
-  border: none;
-  background: #000;
-  color: #fff;
-  font-weight: 600;
-  cursor: pointer;
-  transition: 0.2s;
-}
-
-.btn.active:hover {
-  background: #222;
-}
-
-/* ======================
-   OUTPUT
-====================== */
-.output {
-  display: flex;
-  flex-direction: column;
-  gap: 12px;
-}
-
-/* BLOCK */
-.block {
-  border: 1px solid #e5e5e5;
-  border-radius: 12px;
-  padding: 14px;
-  background: #fff;
+/* MAIN CONTAINER */
+.container{
+  max-width:1020px;
+  margin:auto;
+  background:#fff;
+  border-radius:18px;
+  padding:55px 32px;
 }
 
 /* HEADER */
-.block-head {
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-  margin-bottom: 8px;
+.header{
+  text-align:center;
+  margin-bottom:42px;
 }
 
-.block-title {
-  font-size: 12px;
-  font-weight: 700;
-  letter-spacing: 1px;
-  padding: 4px 8px;
-  background: #f3f3f3;
-  border-radius: 6px;
+.header h1{
+  font-size:36px;
+  font-weight:700;
+  margin-bottom:14px;
 }
 
-/* CONTENT */
-.block-content {
-  font-size: 14px;
-  color: #000;
-  line-height: 1.6;
-  white-space: pre-wrap;
+.header p{
+  font-size:16px;
+  color:#222;
 }
 
-/* ======================
-   COPY BUTTON
-====================== */
-.copy-btn {
-  font-size: 12px;
-  padding: 5px 10px;
-  border-radius: 6px;
-  border: 1px solid #ddd;
-  background: #fff;
-  cursor: pointer;
+/* FIELD */
+.field{
+  margin-bottom:30px;
 }
 
-.copy-btn:hover {
-  background: #f5f5f5;
+.field label{
+  display:block;
+  text-align:center;
+  font-size:18px;
+  font-weight:700;
+  margin-bottom:14px;
 }
 
-.copy-btn.copied {
-  background: #000;
-  color: #fff;
+/* INPUTS */
+select{
+  width:100%;
+  height:50px;
+  border-radius:10px;
+  border:2px solid #000;
+  background:#3b3b3b;
+  color:#fff;
+  padding:0 16px;
+  font-size:17px;
+  outline:none;
+}
+
+/* BUTTON */
+.generate-btn{
+  width:100%;
+  height:52px;
+  border:none;
+  border-radius:12px;
+  background:#000;
+  color:#fff;
+  font-size:18px;
+  font-weight:700;
+  cursor:pointer;
+  margin-top:8px;
+  transition:0.2s;
+}
+
+.generate-btn:hover{
+  background:#111;
+}
+
+/* OUTPUT */
+.output{
+  max-width:1020px;
+  margin:24px auto 0;
+  display:flex;
+  flex-direction:column;
+  gap:18px;
+}
+
+/* BLOCK */
+.block{
+  background:#fff;
+  border:1px solid #ddd;
+  border-radius:14px;
+  padding:18px;
+}
+
+.block-head{
+  display:flex;
+  justify-content:space-between;
+  align-items:center;
+  margin-bottom:12px;
+}
+
+.block-title{
+  font-size:12px;
+  font-weight:700;
+  letter-spacing:1px;
+  background:#f3f3f3;
+  padding:6px 10px;
+  border-radius:6px;
+}
+
+.block-content{
+  font-size:15px;
+  line-height:1.7;
+  white-space:pre-wrap;
+}
+
+/* COPY BUTTON */
+.copy-btn{
+  border:1px solid #ddd;
+  background:#fff;
+  padding:6px 12px;
+  border-radius:7px;
+  cursor:pointer;
+  font-size:13px;
+}
+
+.copy-btn:hover{
+  background:#f5f5f5;
+}
+
+.copy-btn.copied{
+  background:#000;
+  color:#fff;
+}
+
+/* MOBILE */
+@media(max-width:768px){
+
+  .container{
+    padding:35px 20px;
+  }
+
+  .header h1{
+    font-size:28px;
+  }
+
+  .field label{
+    font-size:16px;
+  }
+
+  select{
+    font-size:15px;
+  }
+
+  .generate-btn{
+    font-size:16px;
+  }
+
 }
