@@ -1,7 +1,9 @@
-import "./App.css";
+import "./markdown.css";
 
 export default function App() {
+
   return (
+
     <div className="page">
 
       <div className="container">
@@ -9,7 +11,9 @@ export default function App() {
         {/* HEADER */}
         <div className="header">
 
-          <h1>AI Project Idea Generator</h1>
+          <h1>
+            AI Project Idea Generator
+          </h1>
 
           <p>
             Generate complete engineering projects using AI
@@ -17,49 +21,70 @@ export default function App() {
 
         </div>
 
-        {/* DEPARTMENT */}
-        <div className="field">
+        {/* FORM */}
+        <div className="form">
 
-          <label>Department</label>
+          {/* Department */}
+          <div className="field">
 
-          <input
-            type="text"
-            placeholder="Example: ECE"
-          />
+            <label>
+              Department
+            </label>
+
+            <input
+              type="text"
+              placeholder="Example: ECE"
+            />
+
+          </div>
+
+          {/* Technology */}
+          <div className="field">
+
+            <label>
+              Technology
+            </label>
+
+            <input
+              type="text"
+              placeholder="Example: AI, IoT, Cloud"
+            />
+
+          </div>
+
+          {/* Difficulty */}
+          <div className="field">
+
+            <label>
+              Difficulty
+            </label>
+
+            <select>
+
+              <option>
+                Medium
+              </option>
+
+              <option>
+                Easy
+              </option>
+
+              <option>
+                Hard
+              </option>
+
+            </select>
+
+          </div>
+
+          {/* BUTTON */}
+          <button className="generate-btn">
+
+            Generate Project
+
+          </button>
 
         </div>
-
-        {/* TECHNOLOGY */}
-        <div className="field">
-
-          <label>Technology</label>
-
-          <input
-            type="text"
-            placeholder="Example: AI, IoT, Cloud"
-          />
-
-        </div>
-
-        {/* DIFFICULTY */}
-        <div className="field">
-
-          <label>Difficulty</label>
-
-          <select>
-
-            <option>Medium</option>
-            <option>Easy</option>
-            <option>Hard</option>
-
-          </select>
-
-        </div>
-
-        {/* BUTTON */}
-        <button className="generate-btn">
-          Generate Project
-        </button>
 
       </div>
 

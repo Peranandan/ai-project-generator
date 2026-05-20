@@ -6,9 +6,16 @@
   box-sizing:border-box;
 }
 
+html,
+body,
+#root{
+  width:100%;
+  min-height:100vh;
+  background:#ffffff !important;
+}
+
 body{
   font-family:"Inter",sans-serif;
-  background:#ffffff;
   color:#000;
 }
 
@@ -16,24 +23,24 @@ body{
 .page{
   width:100%;
   min-height:100vh;
-  background:#ffffff;
-  padding:24px;
+  background:#ffffff !important;
+  display:flex;
+  justify-content:center;
+  align-items:flex-start;
+  padding:40px 20px;
 }
 
 /* CONTAINER */
 .container{
   width:100%;
-  max-width:1000px;
-  margin:auto;
+  max-width:900px;
   background:#ffffff;
-  border-radius:18px;
-  padding:45px 24px;
 }
 
 /* HEADER */
 .header{
   text-align:center;
-  margin-bottom:40px;
+  margin-bottom:45px;
 }
 
 .header h1{
@@ -44,20 +51,24 @@ body{
 }
 
 .header p{
-  font-size:18px;
-  color:#222;
+  font-size:20px;
+  color:#444;
+}
+
+/* FORM */
+.form{
+  width:100%;
 }
 
 /* FIELD */
 .field{
-  margin-bottom:28px;
+  margin-bottom:30px;
 }
 
 .field label{
   display:block;
-  text-align:center;
-  font-size:22px;
-  font-weight:700;
+  font-size:24px;
+  font-weight:600;
   color:#000;
   margin-bottom:12px;
 }
@@ -66,25 +77,25 @@ body{
 input,
 select{
   width:100%;
-  height:54px;
+  height:58px;
   border:2px solid #000;
-  border-radius:10px;
-  background:#ffffff;
+  border-radius:12px;
+  background:#fff;
   color:#000;
   font-size:18px;
-  padding:0 16px;
+  padding:0 18px;
   outline:none;
 }
 
 /* PLACEHOLDER */
 input::placeholder{
-  color:#666;
+  color:#777;
 }
 
 /* BUTTON */
 .generate-btn{
   width:100%;
-  height:56px;
+  height:60px;
   border:none;
   border-radius:12px;
   background:#000;
@@ -97,22 +108,4 @@ input::placeholder{
 
 .generate-btn:hover{
   background:#111;
-}
-
-/* RESPONSIVE */
-@media(max-width:768px){
-
-  .header h1{
-    font-size:42px;
-  }
-
-  .field label{
-    font-size:18px;
-  }
-
-  input,
-  select{
-    font-size:16px;
-  }
-
 }
