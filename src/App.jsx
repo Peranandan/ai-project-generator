@@ -22,7 +22,7 @@ export default function App() {
     useState("");
 
   // =========================
-  // BACKEND API URL
+  // BACKEND URL
   // =========================
   const API_URL =
     "https://ai-project-backend-pcuo.onrender.com/generate";
