@@ -22,7 +22,7 @@ export default function App() {
   // YOUR RENDER BACKEND URL
   // =========================
   const API_URL =
-    "https://ai-project-generator-r62k.onrender.com/generate";
+    "https://ai-project-backend-pcuo.onrender.com/generate";
 
   // =========================
   // GENERATE FUNCTION
