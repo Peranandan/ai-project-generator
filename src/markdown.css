@@ -1,78 +1,96 @@
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap');
+
 /* =========================
-   GLOBAL
+   BASE
 ========================= */
-body {
+* {
   margin: 0;
-  font-family: "DM Sans", sans-serif;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  font-family: "Inter", sans-serif;
   background: #ffffff;
-  color: #000;
+  color: #000000;
 }
 
 /* =========================
-   APP LAYOUT
+   MAIN LAYOUT
 ========================= */
 .app {
   display: flex;
   height: 100vh;
+  background: #fff;
 }
 
 /* =========================
-   SIDEBAR (WHITE BOX STYLE)
+   SIDEBAR
 ========================= */
 .sidebar {
   width: 280px;
   background: #ffffff;
-  border-right: 1px solid #eaeaea;
+  border-right: 1px solid #e5e5e5;
   padding: 20px;
   display: flex;
   flex-direction: column;
-  gap: 14px;
+  gap: 18px;
 }
 
 .logo {
   font-size: 18px;
-  font-weight: 800;
+  font-weight: 700;
   margin-bottom: 10px;
 }
 
-/* INPUT BOX STYLE */
+/* INPUT BOX */
 .box {
   display: flex;
   flex-direction: column;
   gap: 6px;
-  padding: 10px;
-  border: 1px solid #eaeaea;
-  border-radius: 10px;
-  background: #fff;
 }
 
 .box label {
   font-size: 12px;
   font-weight: 600;
-  color: #000;
+  color: #444;
 }
 
+/* SELECT */
 .box select {
-  border: none;
-  outline: none;
+  padding: 10px;
+  border: 1px solid #ddd;
+  border-radius: 8px;
   background: #fff;
   color: #000;
+  outline: none;
   font-size: 14px;
+}
+
+.box select:focus {
+  border-color: #000;
 }
 
 /* BUTTON */
 .send-btn {
+  margin-top: 10px;
   padding: 12px;
   background: #000;
   color: #fff;
   border: none;
-  border-radius: 10px;
-  cursor: pointer;
+  border-radius: 8px;
   font-weight: 600;
+  cursor: pointer;
+  transition: 0.2s;
 }
 
 .send-btn:hover {
-  opacity: 0.85;
+  background: #222;
+}
+
+.send-btn:disabled {
+  opacity: 0.6;
+  cursor: not-allowed;
 }
 
 /* =========================
@@ -81,69 +99,93 @@ body {
 .chat {
   flex: 1;
   padding: 20px;
-  background: #ffffff;
   overflow-y: auto;
+  background: #fff;
   display: flex;
   flex-direction: column;
-  gap: 12px;
+  gap: 16px;
 }
 
-/* =========================
-   MESSAGES
-========================= */
+/* MESSAGE WRAPPER */
 .msg {
   display: flex;
 }
 
+/* USER MESSAGE */
 .msg.user {
   justify-content: flex-end;
 }
 
+.msg.user .bubble {
+  background: #000;
+  color: #fff;
+  border-radius: 14px 14px 0 14px;
+}
+
+/* AI MESSAGE */
 .msg.ai {
   justify-content: flex-start;
+}
+
+.msg.ai .bubble {
+  background: #f5f5f5;
+  color: #000;
+  border-radius: 14px 14px 14px 0;
+  border: 1px solid #e5e5e5;
 }
 
 /* BUBBLE */
 .bubble {
   max-width: 70%;
-  padding: 12px 14px;
-  border-radius: 12px;
-  border: 1px solid #eaeaea;
-  background: #ffffff;
-  position: relative;
+  padding: 14px;
   font-size: 14px;
   line-height: 1.6;
+  position: relative;
   white-space: pre-wrap;
-}
-
-/* USER BUBBLE */
-.msg.user .bubble {
-  background: #000;
-  color: #fff;
-  border: none;
 }
 
 /* =========================
    COPY BUTTON
 ========================= */
 .copy-btn {
-  position: absolute;
-  top: 6px;
-  right: 8px;
-  font-size: 11px;
-  padding: 4px 8px;
-  border: 1px solid #eaeaea;
+  margin-top: 10px;
+  padding: 6px 10px;
+  font-size: 12px;
+  border: 1px solid #ddd;
   background: #fff;
-  cursor: pointer;
+  color: #000;
   border-radius: 6px;
+  cursor: pointer;
+  float: right;
+  transition: 0.2s;
 }
 
 .copy-btn:hover {
-  background: #000;
-  color: #fff;
+  background: #f2f2f2;
 }
 
 .copy-btn.copied {
   background: #000;
   color: #fff;
+}
+
+/* =========================
+   CODE BLOCK STYLE
+========================= */
+pre {
+  white-space: pre-wrap;
+  word-wrap: break-word;
+  font-family: monospace;
+}
+
+/* =========================
+   SCROLLBAR CLEAN
+========================= */
+.chat::-webkit-scrollbar {
+  width: 6px;
+}
+
+.chat::-webkit-scrollbar-thumb {
+  background: #ddd;
+  border-radius: 10px;
 }
