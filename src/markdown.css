@@ -1,429 +1,149 @@
-/* =============================
-   FONTS
-============================= */
-@import url('https://fonts.googleapis.com/css2?family=Syne:wght@700;800&family=DM+Sans:wght@400;500;600&family=JetBrains+Mono:wght@400;500&display=swap');
-
-/* =============================
-   RESET & BASE
-============================= */
-*, *::before, *::after {
-  box-sizing: border-box;
-  margin: 0;
-  padding: 0;
-}
-
-:root {
-  --white:       #ffffff;
-  --black:       #0a0a0a;
-  --gray-50:     #f9f9f8;
-  --gray-100:    #f2f2f0;
-  --gray-200:    #e5e5e2;
-  --gray-400:    #a8a8a3;
-  --gray-600:    #6b6b66;
-  --accent:      #111111;
-  --accent-soft: #f0f0ee;
-  --highlight:   #f5e642;
-  --green:       #16a34a;
-  --green-soft:  #dcfce7;
-  --border:      #e5e5e2;
-  --radius-sm:   8px;
-  --radius-md:   14px;
-  --radius-lg:   20px;
-  --shadow-sm:   0 1px 3px rgba(0,0,0,0.07), 0 1px 2px rgba(0,0,0,0.04);
-  --shadow-md:   0 4px 16px rgba(0,0,0,0.08), 0 2px 6px rgba(0,0,0,0.04);
-  --shadow-lg:   0 12px 40px rgba(0,0,0,0.10), 0 4px 12px rgba(0,0,0,0.05);
-}
-
+/* =========================
+   GLOBAL
+========================= */
 body {
-  font-family: 'DM Sans', sans-serif;
-  background: var(--white);
-  color: var(--black);
-  min-height: 100vh;
-  -webkit-font-smoothing: antialiased;
+  margin: 0;
+  font-family: "DM Sans", sans-serif;
+  background: #ffffff;
+  color: #000;
 }
 
-/* =============================
-   APP WRAPPER
-============================= */
+/* =========================
+   APP LAYOUT
+========================= */
 .app {
-  max-width: 760px;
-  margin: 0 auto;
-  padding: 0 20px 80px;
+  display: flex;
+  height: 100vh;
 }
 
-/* =============================
-   HERO
-============================= */
-.hero {
-  text-align: center;
-  padding: 72px 0 52px;
-}
-
-.hero-badge {
-  display: inline-block;
-  font-family: 'DM Sans', sans-serif;
-  font-size: 11px;
-  font-weight: 600;
-  letter-spacing: 0.12em;
-  text-transform: uppercase;
-  color: var(--gray-600);
-  background: var(--gray-100);
-  border: 1px solid var(--border);
-  padding: 5px 14px;
-  border-radius: 100px;
-  margin-bottom: 24px;
-}
-
-.hero-title {
-  font-family: 'Syne', sans-serif;
-  font-size: clamp(42px, 7vw, 72px);
-  font-weight: 800;
-  line-height: 1.05;
-  letter-spacing: -0.03em;
-  color: var(--black);
-  margin-bottom: 18px;
-}
-
-.hero-highlight {
-  position: relative;
-  display: inline-block;
-  color: var(--black);
-}
-
-.hero-highlight::after {
-  content: '';
-  position: absolute;
-  left: -2px;
-  right: -2px;
-  bottom: 4px;
-  height: 14px;
-  background: var(--highlight);
-  z-index: -1;
-  border-radius: 3px;
-}
-
-.hero-sub {
-  font-size: 17px;
-  color: var(--gray-600);
-  font-weight: 400;
-  line-height: 1.6;
-}
-
-/* =============================
-   FORM CARD
-============================= */
-.form-card {
-  background: var(--white);
-  border: 1.5px solid var(--border);
-  border-radius: var(--radius-lg);
-  padding: 32px;
-  box-shadow: var(--shadow-md);
-  margin-bottom: 40px;
-}
-
-.selects-row {
-  display: grid;
-  grid-template-columns: 1fr 1fr 1fr;
-  gap: 16px;
-  margin-bottom: 24px;
-}
-
-@media (max-width: 560px) {
-  .selects-row {
-    grid-template-columns: 1fr;
-  }
-}
-
-.select-wrap {
+/* =========================
+   SIDEBAR (WHITE BOX STYLE)
+========================= */
+.sidebar {
+  width: 280px;
+  background: #ffffff;
+  border-right: 1px solid #eaeaea;
+  padding: 20px;
   display: flex;
   flex-direction: column;
-  gap: 7px;
-}
-
-.select-label {
-  font-size: 12px;
-  font-weight: 600;
-  letter-spacing: 0.06em;
-  text-transform: uppercase;
-  color: var(--gray-600);
-}
-
-.select-outer {
-  position: relative;
-}
-
-.select-outer select {
-  width: 100%;
-  appearance: none;
-  background: var(--gray-50);
-  border: 1.5px solid var(--border);
-  border-radius: var(--radius-sm);
-  padding: 11px 36px 11px 14px;
-  font-family: 'DM Sans', sans-serif;
-  font-size: 14px;
-  font-weight: 500;
-  color: var(--black);
-  cursor: pointer;
-  transition: border-color 0.2s, box-shadow 0.2s;
-  outline: none;
-}
-
-.select-outer select:focus {
-  border-color: var(--black);
-  box-shadow: 0 0 0 3px rgba(0,0,0,0.06);
-  background: var(--white);
-}
-
-.select-outer select:hover {
-  border-color: var(--gray-400);
-}
-
-.select-arrow {
-  position: absolute;
-  right: 12px;
-  top: 50%;
-  transform: translateY(-50%);
-  font-size: 12px;
-  color: var(--gray-400);
-  pointer-events: none;
-}
-
-/* =============================
-   GENERATE BUTTON
-============================= */
-.generate-btn {
-  width: 100%;
-  padding: 15px 24px;
-  background: var(--black);
-  color: var(--white);
-  border: none;
-  border-radius: var(--radius-md);
-  font-family: 'DM Sans', sans-serif;
-  font-size: 15px;
-  font-weight: 600;
-  cursor: pointer;
-  transition: background 0.2s, transform 0.15s, box-shadow 0.2s;
-  box-shadow: 0 2px 8px rgba(0,0,0,0.18);
-}
-
-.generate-btn:hover:not(:disabled) {
-  background: #222;
-  transform: translateY(-1px);
-  box-shadow: 0 6px 20px rgba(0,0,0,0.22);
-}
-
-.generate-btn:active:not(:disabled) {
-  transform: translateY(0);
-  box-shadow: 0 2px 8px rgba(0,0,0,0.18);
-}
-
-.generate-btn:disabled {
-  opacity: 0.65;
-  cursor: not-allowed;
-}
-
-.btn-inner {
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  gap: 8px;
-}
-
-/* =============================
-   SPINNER
-============================= */
-.spinner {
-  width: 16px;
-  height: 16px;
-  border: 2px solid rgba(255,255,255,0.3);
-  border-top-color: #fff;
-  border-radius: 50%;
-  animation: spin 0.7s linear infinite;
-  flex-shrink: 0;
-}
-
-@keyframes spin {
-  to { transform: rotate(360deg); }
-}
-
-/* =============================
-   RESULTS SECTION
-============================= */
-.results {
-  display: flex;
-  flex-direction: column;
-  gap: 16px;
-  animation: fadeUp 0.4s ease both;
-}
-
-@keyframes fadeUp {
-  from { opacity: 0; transform: translateY(18px); }
-  to   { opacity: 1; transform: translateY(0); }
-}
-
-.results-header {
-  display: flex;
-  align-items: center;
   gap: 14px;
-  margin-bottom: 4px;
 }
 
-.results-tag {
-  font-size: 11px;
-  font-weight: 600;
-  letter-spacing: 0.1em;
-  text-transform: uppercase;
-  color: var(--gray-400);
-  white-space: nowrap;
+.logo {
+  font-size: 18px;
+  font-weight: 800;
+  margin-bottom: 10px;
 }
 
-.results-divider {
-  flex: 1;
-  height: 1px;
-  background: var(--border);
-}
-
-/* =============================
-   RESULT BLOCK
-============================= */
-.result-block {
-  background: var(--white);
-  border: 1.5px solid var(--border);
-  border-radius: var(--radius-md);
-  overflow: hidden;
-  box-shadow: var(--shadow-sm);
-  transition: box-shadow 0.2s, border-color 0.2s;
-}
-
-.result-block:hover {
-  box-shadow: var(--shadow-md);
-  border-color: var(--gray-400);
-}
-
-/* =============================
-   BLOCK HEADER
-============================= */
-.block-header {
+/* INPUT BOX STYLE */
+.box {
   display: flex;
-  align-items: center;
-  justify-content: space-between;
-  padding: 14px 18px;
-  background: var(--gray-50);
+  flex-direction: column;
+  gap: 6px;
+  padding: 10px;
+  border: 1px solid #eaeaea;
+  border-radius: 10px;
+  background: #fff;
 }
 
-.block-title {
-  display: flex;
-  align-items: center;
-  gap: 9px;
-}
-
-.block-icon {
-  font-size: 16px;
-  line-height: 1;
-}
-
-.block-label {
-  font-family: 'Syne', sans-serif;
-  font-size: 13px;
-  font-weight: 700;
-  letter-spacing: 0.04em;
-  text-transform: uppercase;
-  color: var(--black);
-
-  /* highlighted label */
-  background: var(--highlight);
-  padding: 2px 8px;
-  border-radius: 4px;
-}
-
-/* =============================
-   COPY BUTTON (ChatGPT-style)
-============================= */
-.copy-btn {
-  display: flex;
-  align-items: center;
-  gap: 5px;
-  padding: 6px 12px;
-  background: var(--white);
-  border: 1.5px solid var(--border);
-  border-radius: var(--radius-sm);
-  font-family: 'DM Sans', sans-serif;
+.box label {
   font-size: 12px;
-  font-weight: 500;
-  color: var(--gray-600);
+  font-weight: 600;
+  color: #000;
+}
+
+.box select {
+  border: none;
+  outline: none;
+  background: #fff;
+  color: #000;
+  font-size: 14px;
+}
+
+/* BUTTON */
+.send-btn {
+  padding: 12px;
+  background: #000;
+  color: #fff;
+  border: none;
+  border-radius: 10px;
   cursor: pointer;
-  transition: all 0.18s;
-  white-space: nowrap;
+  font-weight: 600;
 }
 
-.copy-btn:hover {
-  background: var(--gray-100);
-  border-color: var(--gray-400);
-  color: var(--black);
+.send-btn:hover {
+  opacity: 0.85;
 }
 
-.copy-btn.copied {
-  background: var(--green-soft);
-  border-color: var(--green);
-  color: var(--green);
+/* =========================
+   CHAT AREA
+========================= */
+.chat {
+  flex: 1;
+  padding: 20px;
+  background: #ffffff;
+  overflow-y: auto;
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
 }
 
-/* =============================
-   BLOCK DIVIDER
-============================= */
-.block-divider {
-  height: 1px;
-  background: var(--border);
+/* =========================
+   MESSAGES
+========================= */
+.msg {
+  display: flex;
 }
 
-/* =============================
-   BLOCK CONTENT
-============================= */
-.block-content {
-  padding: 18px 20px;
-  font-size: 15px;
-  font-weight: 400;
-  color: var(--black);
-  line-height: 1.75;
+.msg.user {
+  justify-content: flex-end;
+}
+
+.msg.ai {
+  justify-content: flex-start;
+}
+
+/* BUBBLE */
+.bubble {
+  max-width: 70%;
+  padding: 12px 14px;
+  border-radius: 12px;
+  border: 1px solid #eaeaea;
+  background: #ffffff;
+  position: relative;
+  font-size: 14px;
+  line-height: 1.6;
   white-space: pre-wrap;
 }
 
-/* =============================
-   CODE BLOCK
-============================= */
-.code-block {
-  border-color: var(--gray-200);
+/* USER BUBBLE */
+.msg.user .bubble {
+  background: #000;
+  color: #fff;
+  border: none;
 }
 
-.code-block .block-header {
-  background: #f7f7f5;
+/* =========================
+   COPY BUTTON
+========================= */
+.copy-btn {
+  position: absolute;
+  top: 6px;
+  right: 8px;
+  font-size: 11px;
+  padding: 4px 8px;
+  border: 1px solid #eaeaea;
+  background: #fff;
+  cursor: pointer;
+  border-radius: 6px;
 }
 
-.block-code {
-  padding: 20px;
-  font-family: 'JetBrains Mono', monospace;
-  font-size: 13px;
-  line-height: 1.7;
-  color: var(--black);
-  background: #fafaf8;
-  overflow-x: auto;
-  white-space: pre;
+.copy-btn:hover {
+  background: #000;
+  color: #fff;
 }
 
-.block-code code {
-  font-family: inherit;
-}
-
-/* =============================
-   SCROLLBAR
-============================= */
-.block-code::-webkit-scrollbar {
-  height: 5px;
-}
-.block-code::-webkit-scrollbar-track {
-  background: transparent;
-}
-.block-code::-webkit-scrollbar-thumb {
-  background: var(--gray-200);
-  border-radius: 99px;
+.copy-btn.copied {
+  background: #000;
+  color: #fff;
 }
