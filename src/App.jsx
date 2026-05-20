@@ -1,14 +1,7 @@
-import { useState } from "react";
 import "./App.css";
 
 export default function App() {
-
-  const [department, setDepartment] = useState("");
-  const [technology, setTechnology] = useState("");
-  const [level, setLevel] = useState("");
-
   return (
-
     <div className="page">
 
       <div className="container">
@@ -32,10 +25,6 @@ export default function App() {
           <input
             type="text"
             placeholder="Example: ECE"
-            value={department}
-            onChange={(e) =>
-              setDepartment(e.target.value)
-            }
           />
 
         </div>
@@ -48,10 +37,6 @@ export default function App() {
           <input
             type="text"
             placeholder="Example: AI, IoT, Cloud"
-            value={technology}
-            onChange={(e) =>
-              setTechnology(e.target.value)
-            }
           />
 
         </div>
@@ -61,12 +46,7 @@ export default function App() {
 
           <label>Difficulty</label>
 
-          <select
-            value={level}
-            onChange={(e) =>
-              setLevel(e.target.value)
-            }
-          >
+          <select>
 
             <option>Medium</option>
             <option>Easy</option>
