@@ -11,7 +11,7 @@ body,
 #root{
   width:100%;
   min-height:100vh;
-  background:#ffffff !important;
+  background:#f3f3f3;
 }
 
 body{
@@ -23,35 +23,34 @@ body{
 .page{
   width:100%;
   min-height:100vh;
-  background:#ffffff !important;
+  background:#f3f3f3;
   display:flex;
   justify-content:center;
-  align-items:flex-start;
-  padding:40px 20px;
+  padding:35px 20px;
 }
 
 /* CONTAINER */
 .container{
   width:100%;
-  max-width:900px;
-  background:#ffffff;
+  max-width:950px;
 }
 
 /* HEADER */
 .header{
   text-align:center;
-  margin-bottom:45px;
+  margin-bottom:42px;
 }
 
 .header h1{
-  font-size:64px;
+  font-size:54px;
   font-weight:700;
   color:#000;
-  margin-bottom:14px;
+  line-height:1.1;
+  margin-bottom:10px;
 }
 
 .header p{
-  font-size:20px;
+  font-size:16px;
   color:#444;
 }
 
@@ -62,15 +61,16 @@ body{
 
 /* FIELD */
 .field{
-  margin-bottom:30px;
+  margin-bottom:34px;
 }
 
 .field label{
   display:block;
-  font-size:24px;
-  font-weight:600;
+  text-align:center;
+  font-size:22px;
+  font-weight:700;
   color:#000;
-  margin-bottom:12px;
+  margin-bottom:14px;
 }
 
 /* INPUTS */
@@ -79,10 +79,10 @@ select{
   width:100%;
   height:58px;
   border:2px solid #000;
-  border-radius:12px;
+  border-radius:14px;
   background:#fff;
   color:#000;
-  font-size:18px;
+  font-size:20px;
   padding:0 18px;
   outline:none;
 }
@@ -95,17 +95,51 @@ input::placeholder{
 /* BUTTON */
 .generate-btn{
   width:100%;
-  height:60px;
+  height:72px;
   border:none;
-  border-radius:12px;
+  border-radius:14px;
   background:#000;
   color:#fff;
-  font-size:20px;
+  font-size:28px;
   font-weight:700;
   cursor:pointer;
-  margin-top:10px;
+  margin-top:12px;
+  transition:0.2s;
 }
 
 .generate-btn:hover{
   background:#111;
+  transform:scale(1.01);
+}
+
+/* MOBILE */
+@media(max-width:768px){
+
+  .page{
+    padding:24px 16px;
+  }
+
+  .header h1{
+    font-size:40px;
+  }
+
+  .header p{
+    font-size:15px;
+  }
+
+  .field label{
+    font-size:18px;
+  }
+
+  input,
+  select{
+    height:54px;
+    font-size:17px;
+  }
+
+  .generate-btn{
+    height:60px;
+    font-size:20px;
+  }
+
 }

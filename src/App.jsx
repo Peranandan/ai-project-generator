@@ -12,7 +12,7 @@ export default function App() {
         <div className="header">
 
           <h1>
-            AI Project Idea Generator
+            AI Project Generator
           </h1>
 
           <p>
