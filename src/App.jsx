@@ -3,6 +3,9 @@ import "./markdown.css";
 
 export default function App() {
 
+  // =========================
+  // STATES
+  // =========================
   const [department, setDepartment] =
     useState("");
 
@@ -19,22 +22,27 @@ export default function App() {
     useState("");
 
   // =========================
-  // YOUR RENDER BACKEND URL
+  // BACKEND API URL
   // =========================
   const API_URL =
     "https://ai-project-backend-pcuo.onrender.com/generate";
 
   // =========================
-  // GENERATE FUNCTION
+  // GENERATE PROJECT
   // =========================
   const generateProject = async () => {
 
+    // VALIDATION
     if (
       !department ||
       !technology ||
       !level
     ) {
-      alert("Please fill all fields");
+
+      alert(
+        "Please fill all fields"
+      );
+
       return;
     }
 
@@ -42,6 +50,9 @@ export default function App() {
 
       setLoading(true);
 
+      setResult("");
+
+      // API REQUEST
       const response = await fetch(
         API_URL,
         {
@@ -53,8 +64,11 @@ export default function App() {
           },
 
           body: JSON.stringify({
+
             department,
+
             technology,
+
             level,
           }),
         }
@@ -65,14 +79,18 @@ export default function App() {
 
       console.log(data);
 
+      // SUCCESS
       if (data.success) {
 
-        setResult(data.result);
+        setResult(
+          data.result
+        );
 
       } else {
 
-        alert(data.error);
-
+        alert(
+          data.error
+        );
       }
 
     } catch (error) {
@@ -80,16 +98,18 @@ export default function App() {
       console.log(error);
 
       alert(
-        "Backend not connected"
+        "Backend connection failed"
       );
 
     } finally {
 
       setLoading(false);
-
     }
   };
 
+  // =========================
+  // UI
+  // =========================
   return (
 
     <div className="page">
@@ -112,7 +132,7 @@ export default function App() {
         {/* FORM */}
         <div className="form">
 
-          {/* Department */}
+          {/* DEPARTMENT */}
           <div className="field">
 
             <label>
@@ -121,8 +141,12 @@ export default function App() {
 
             <input
               type="text"
-              placeholder="Example: ECE"
+
+              placeholder=
+              "Example: CSE"
+
               value={department}
+
               onChange={(e) =>
                 setDepartment(
                   e.target.value
@@ -132,7 +156,7 @@ export default function App() {
 
           </div>
 
-          {/* Technology */}
+          {/* TECHNOLOGY */}
           <div className="field">
 
             <label>
@@ -141,8 +165,12 @@ export default function App() {
 
             <input
               type="text"
-              placeholder="Example: AI, IoT, Cloud"
+
+              placeholder=
+              "Example: AI, IoT"
+
               value={technology}
+
               onChange={(e) =>
                 setTechnology(
                   e.target.value
@@ -152,7 +180,7 @@ export default function App() {
 
           </div>
 
-          {/* Difficulty */}
+          {/* LEVEL */}
           <div className="field">
 
             <label>
@@ -160,7 +188,9 @@ export default function App() {
             </label>
 
             <select
+
               value={level}
+
               onChange={(e) =>
                 setLevel(
                   e.target.value
@@ -191,7 +221,10 @@ export default function App() {
           {/* BUTTON */}
           <button
             className="generate-btn"
-            onClick={generateProject}
+
+            onClick={
+              generateProject
+            }
           >
 
             {loading
