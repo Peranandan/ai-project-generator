@@ -9,7 +9,8 @@ export default function App() {
   const [loading, setLoading] = useState(false);
   const [result, setResult] = useState("");
 
-  const API_URL = "https://ai-project-backend-pcuo.onrender.com/generate";
+  const API_URL =
+    "https://ai-project-backend-pcuo.onrender.com/chat";
 
   const generateProject = async () => {
 
@@ -18,25 +19,28 @@ export default function App() {
       return;
     }
 
+    const message =
+      `Dept:${department} Tech:${technology} Level:${level} project`;
+
     try {
+
       setLoading(true);
       setResult("");
 
       const res = await fetch(API_URL, {
         method: "POST",
-        headers: { "Content-Type": "application/json" },
-        body: JSON.stringify({
-          department,
-          technology,
-          level,
-        }),
+        headers: {
+          "Content-Type": "application/json",
+        },
+        body: JSON.stringify({ message }),
       });
 
       const data = await res.json();
+
       console.log(data);
 
       if (data.success) {
-        setResult(data.result);
+        setResult(data.response);
       } else {
         alert(data.detail || "Something went wrong");
       }
@@ -50,46 +54,51 @@ export default function App() {
   };
 
   const renderResult = (text) => {
-    return text.split("\n").filter(Boolean).map((line, i) => {
+    return text
+      .split("\n")
+      .filter(Boolean)
+      .map((line, i) => {
 
-      if (line.startsWith("Project Title:")) {
-        return (
-          <div key={i} className="result-title">
-            {line.replace("Project Title:", "").trim()}
-          </div>
-        );
-      }
+        if (line.startsWith("Project Title:")) {
+          return (
+            <div key={i} className="result-title">
+              {line.replace("Project Title:", "").trim()}
+            </div>
+          );
+        }
 
-      if (
-        line.startsWith("Components:") ||
-        line.startsWith("Description:") ||
-        line.startsWith("Steps:")
-      ) {
-        const colon = line.indexOf(":");
-        const label = line.slice(0, colon);
-        const value = line.slice(colon + 1).trim();
-        return (
-          <div key={i} className="result-section">
-            <span className="result-label">{label}:</span>
-            {value && <span className="result-value"> {value}</span>}
-          </div>
-        );
-      }
+        if (
+          line.startsWith("Components:") ||
+          line.startsWith("Description:") ||
+          line.startsWith("Steps:")
+        ) {
+          const colon = line.indexOf(":");
+          const label = line.slice(0, colon);
+          const value = line.slice(colon + 1).trim();
+          return (
+            <div key={i} className="result-section">
+              <span className="result-label">{label}:</span>
+              {value && (
+                <span className="result-value"> {value}</span>
+              )}
+            </div>
+          );
+        }
 
-      if (/^\d+\./.test(line)) {
+        if (/^\d+\./.test(line)) {
+          return (
+            <div key={i} className="result-step">
+              {line}
+            </div>
+          );
+        }
+
         return (
-          <div key={i} className="result-step">
+          <div key={i} className="result-line">
             {line}
           </div>
         );
-      }
-
-      return (
-        <div key={i} className="result-line">
-          {line}
-        </div>
-      );
-    });
+      });
   };
 
   return (
