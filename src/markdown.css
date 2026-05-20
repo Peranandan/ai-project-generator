@@ -6,9 +6,7 @@
   box-sizing:border-box;
 }
 
-html,
-body,
-#root{
+html,body,#root{
   width:100%;
   min-height:100vh;
   background:#f3f3f3;
@@ -19,7 +17,6 @@ body{
   color:#000;
 }
 
-/* PAGE */
 .page{
   width:100%;
   min-height:100vh;
@@ -29,13 +26,11 @@ body{
   padding:40px 20px;
 }
 
-/* CONTAINER */
 .container{
   width:100%;
   max-width:950px;
 }
 
-/* HEADER */
 .header{
   text-align:center;
   margin-bottom:45px;
@@ -54,17 +49,14 @@ body{
   color:#444;
 }
 
-/* FORM */
 .form{
   width:100%;
 }
 
-/* FIELD */
 .field{
   margin-bottom:34px;
 }
 
-/* LABEL */
 .field label{
   display:block;
   text-align:center;
@@ -74,9 +66,7 @@ body{
   margin-bottom:14px;
 }
 
-/* INPUTS */
-input,
-select{
+input,select{
   width:100%;
   height:62px;
   border:2px solid #000;
@@ -88,12 +78,10 @@ select{
   outline:none;
 }
 
-/* PLACEHOLDER */
 input::placeholder{
   color:#777;
 }
 
-/* BUTTON */
 .generate-btn{
   width:100%;
   height:74px;
@@ -119,7 +107,6 @@ input::placeholder{
   transform:none;
 }
 
-/* RESULT BOX */
 .result-box{
   width:100%;
   margin-top:35px;
@@ -129,7 +116,6 @@ input::placeholder{
   padding:28px 32px;
 }
 
-/* RESULT TITLE */
 .result-title{
   font-size:26px;
   font-weight:700;
@@ -139,27 +125,23 @@ input::placeholder{
   border-bottom:2px solid #000;
 }
 
-/* RESULT SECTION */
 .result-section{
   margin-bottom:14px;
   font-size:17px;
   line-height:1.7;
 }
 
-/* RESULT LABEL */
 .result-label{
   font-weight:700;
   color:#000;
   margin-right:6px;
 }
 
-/* RESULT VALUE */
 .result-value{
   color:#222;
   font-weight:400;
 }
 
-/* RESULT STEP */
 .result-step{
   font-size:16px;
   color:#222;
@@ -168,7 +150,6 @@ input::placeholder{
   margin-bottom:6px;
 }
 
-/* RESULT LINE */
 .result-line{
   font-size:16px;
   color:#333;
@@ -176,7 +157,6 @@ input::placeholder{
   margin-bottom:4px;
 }
 
-/* MOBILE */
 @media(max-width:768px){
 
   .page{
@@ -195,8 +175,7 @@ input::placeholder{
     font-size:18px;
   }
 
-  input,
-  select{
+  input,select{
     height:56px;
     font-size:17px;
   }
@@ -219,5 +198,4 @@ input::placeholder{
   .result-line{
     font-size:15px;
   }
-
 }

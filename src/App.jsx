@@ -18,25 +18,25 @@ export default function App() {
       return;
     }
 
-    const message = `Dept:${department} Tech:${technology} Level:${level} project`;
-
     try {
-
       setLoading(true);
       setResult("");
 
       const res = await fetch(API_URL, {
         method: "POST",
         headers: { "Content-Type": "application/json" },
-        body: JSON.stringify({ message }),
+        body: JSON.stringify({
+          department,
+          technology,
+          level,
+        }),
       });
 
       const data = await res.json();
-
       console.log(data);
 
       if (data.success) {
-        setResult(data.response);
+        setResult(data.result);
       } else {
         alert(data.detail || "Something went wrong");
       }
@@ -71,9 +71,7 @@ export default function App() {
         return (
           <div key={i} className="result-section">
             <span className="result-label">{label}:</span>
-            {value && (
-              <span className="result-value"> {value}</span>
-            )}
+            {value && <span className="result-value"> {value}</span>}
           </div>
         );
       }
@@ -91,7 +89,6 @@ export default function App() {
           {line}
         </div>
       );
-
     });
   };
 
