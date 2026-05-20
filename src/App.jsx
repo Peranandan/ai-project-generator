@@ -8,7 +8,7 @@ export default function App() {
   const [loading, setLoading] = useState(false);
   const [result, setResult] = useState(null);
 
-  const API_URL = "http://localhost:8000/chat";
+  const API_URL = "https://ai-project-backend-pcuo.onrender.com/chat";
 
   const generateProject = async () => {
     if (!department || !technology || !level) {
@@ -28,6 +28,11 @@ export default function App() {
         body: JSON.stringify({ message }),
       });
 
+      if (!res.ok) {
+        alert(`Server error: ${res.status}`);
+        return;
+      }
+
       const data = await res.json();
 
       if (data.success) {
@@ -38,7 +43,7 @@ export default function App() {
 
     } catch (err) {
       console.error(err);
-      alert("Backend connection failed");
+      alert("Backend connection failed. Make sure your server is running.");
     } finally {
       setLoading(false);
     }
@@ -83,34 +88,53 @@ export default function App() {
         continue;
       }
 
-      if (inCodeBlock) { buffer.push(line); continue; }
+      if (inCodeBlock) {
+        buffer.push(line);
+        continue;
+      }
 
       if (/^Project Title:/i.test(l)) {
-        flush(); sections.title = l.replace(/^Project Title:/i, "").trim(); currentSection = "";
-      } else if (/^(Explanation):/i.test(l)) {
-        flush(); currentSection = "explanation";
-        const inline = l.split(":").slice(1).join(":").trim(); if (inline) buffer.push(inline);
+        flush();
+        sections.title = l.replace(/^Project Title:/i, "").trim();
+        currentSection = "";
+      } else if (/^Explanation:/i.test(l)) {
+        flush();
+        currentSection = "explanation";
+        const inline = l.split(":").slice(1).join(":").trim();
+        if (inline) buffer.push(inline);
       } else if (/^Description:/i.test(l)) {
-        flush(); currentSection = "description";
-        const inline = l.split(":").slice(1).join(":").trim(); if (inline) buffer.push(inline);
+        flush();
+        currentSection = "description";
+        const inline = l.split(":").slice(1).join(":").trim();
+        if (inline) buffer.push(inline);
       } else if (/^Features:/i.test(l) || /^features$/i.test(l)) {
-        flush(); currentSection = "features";
+        flush();
+        currentSection = "features";
       } else if (/^Architecture/i.test(l)) {
-        flush(); currentSection = "architecture";
-        const inline = l.split(":").slice(1).join(":").trim(); if (inline) buffer.push(inline);
+        flush();
+        currentSection = "architecture";
+        const inline = l.split(":").slice(1).join(":").trim();
+        if (inline) buffer.push(inline);
       } else if (/^(Code Explanation|Code Walkthrough):/i.test(l)) {
-        flush(); currentSection = "code_explanation";
-        const inline = l.split(":").slice(1).join(":").trim(); if (inline) buffer.push(inline);
+        flush();
+        currentSection = "code_explanation";
+        const inline = l.split(":").slice(1).join(":").trim();
+        if (inline) buffer.push(inline);
       } else if (/^Code:/i.test(l)) {
-        flush(); currentSection = "code";
+        flush();
+        currentSection = "code";
       } else if (/^(Steps:|Step-by-Step|Implementation Steps)/i.test(l) || /^steps$/i.test(l)) {
-        flush(); currentSection = "steps";
+        flush();
+        currentSection = "steps";
       } else if (/^Components:/i.test(l)) {
-        flush(); sections.components = l.replace(/^Components:/i, "").trim(); currentSection = "";
+        flush();
+        sections.components = l.replace(/^Components:/i, "").trim();
+        currentSection = "";
       } else {
         if (l) buffer.push(l);
       }
     }
+
     flush();
 
     if (!sections.explanation && sections.description) {
@@ -121,11 +145,15 @@ export default function App() {
   };
 
   const copyToClipboard = (text) => {
-    navigator.clipboard.writeText(text);
+    navigator.clipboard.writeText(text).catch(() => {
+      alert("Copy failed. Please copy manually.");
+    });
   };
 
   const Section = ({ title, content, isCode }) => {
     if (!content || (Array.isArray(content) && content.length === 0)) return null;
+    if (!Array.isArray(content) && !content.trim()) return null;
+
     const text = Array.isArray(content) ? content.join("\n") : content;
 
     return (
@@ -238,13 +266,41 @@ export default function App() {
               </div>
             )}
 
-            <Section title="📖 Explanation" content={result.explanation || result.description} />
-            <Section title="✨ Features" content={result.features} />
-            <Section title="🏗️ Architecture Overview" content={result.architecture} />
-            <Section title="🧩 Components" content={result.components} />
-            <Section title="🪜 Step-by-Step Implementation" content={result.steps} />
-            <Section title="💻 Code" content={result.code} isCode={true} />
-            <Section title="🔍 Code Explanation" content={result.code_explanation} />
+            <Section
+              title="📖 Explanation"
+              content={result.explanation || result.description}
+            />
+
+            <Section
+              title="✨ Features"
+              content={result.features}
+            />
+
+            <Section
+              title="🏗️ Architecture Overview"
+              content={result.architecture}
+            />
+
+            <Section
+              title="🧩 Components"
+              content={result.components}
+            />
+
+            <Section
+              title="🪜 Step-by-Step Implementation"
+              content={result.steps}
+            />
+
+            <Section
+              title="💻 Code"
+              content={result.code}
+              isCode={true}
+            />
+
+            <Section
+              title="🔍 Code Explanation"
+              content={result.code_explanation}
+            />
 
           </div>
         )}
