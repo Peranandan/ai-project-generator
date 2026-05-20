@@ -113,6 +113,12 @@ input::placeholder{
   transform:scale(1.01);
 }
 
+.generate-btn:disabled{
+  background:#555;
+  cursor:not-allowed;
+  transform:none;
+}
+
 /* RESULT BOX */
 .result-box{
   width:100%;
@@ -120,14 +126,54 @@ input::placeholder{
   background:#fff;
   border:2px solid #000;
   border-radius:16px;
-  padding:24px;
+  padding:28px 32px;
 }
 
-.result-box pre{
-  white-space:pre-wrap;
-  font-size:16px;
-  line-height:1.8;
+/* RESULT TITLE */
+.result-title{
+  font-size:26px;
+  font-weight:700;
   color:#000;
+  margin-bottom:20px;
+  padding-bottom:14px;
+  border-bottom:2px solid #000;
+}
+
+/* RESULT SECTION */
+.result-section{
+  margin-bottom:14px;
+  font-size:17px;
+  line-height:1.7;
+}
+
+/* RESULT LABEL */
+.result-label{
+  font-weight:700;
+  color:#000;
+  margin-right:6px;
+}
+
+/* RESULT VALUE */
+.result-value{
+  color:#222;
+  font-weight:400;
+}
+
+/* RESULT STEP */
+.result-step{
+  font-size:16px;
+  color:#222;
+  line-height:1.8;
+  padding-left:16px;
+  margin-bottom:6px;
+}
+
+/* RESULT LINE */
+.result-line{
+  font-size:16px;
+  color:#333;
+  line-height:1.8;
+  margin-bottom:4px;
 }
 
 /* MOBILE */
@@ -158,6 +204,20 @@ input::placeholder{
   .generate-btn{
     height:62px;
     font-size:22px;
+  }
+
+  .result-box{
+    padding:20px;
+  }
+
+  .result-title{
+    font-size:22px;
+  }
+
+  .result-section,
+  .result-step,
+  .result-line{
+    font-size:15px;
   }
 
 }
