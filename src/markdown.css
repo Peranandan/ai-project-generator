@@ -1,4 +1,3 @@
-```css
 * {
   box-sizing: border-box;
   margin: 0;
@@ -18,60 +17,65 @@ body {
 }
 
 .container {
-  max-width: 720px;
+  max-width: 680px;
   margin: 0 auto;
   padding: 24px 20px;
 }
 
+/* Header */
 .header {
   text-align: center;
-  padding: 40px 0 32px;
+  padding: 44px 0 36px;
 }
 
 .header-icon {
-  font-size: 36px;
-  margin-bottom: 12px;
+  font-size: 38px;
+  margin-bottom: 14px;
 }
 
 .header h1 {
   font-size: 26px;
   font-weight: 700;
-  color: #111;
+  color: #111111;
   margin-bottom: 8px;
-  letter-spacing: -0.3px;
+  letter-spacing: -0.4px;
 }
 
 .header p {
   font-size: 14px;
   color: #6b7280;
+  font-weight: 400;
 }
 
+/* Form Card */
 .form {
   background: #ffffff;
   border-radius: 16px;
   border: 1px solid #e5e7eb;
-  padding: 24px;
+  padding: 28px 24px;
   margin-bottom: 24px;
   display: flex;
   flex-direction: column;
-  gap: 16px;
-  box-shadow: 0 1px 4px rgba(0,0,0,0.06);
+  gap: 18px;
+  box-shadow: 0 1px 3px rgba(0, 0, 0, 0.07);
 }
 
+/* Field */
 .field {
   display: flex;
   flex-direction: column;
-  gap: 6px;
+  gap: 7px;
 }
 
 .field label {
-  font-size: 12px;
+  font-size: 11.5px;
   font-weight: 600;
-  color: #6b7280;
+  color: #374151;
   text-transform: uppercase;
-  letter-spacing: 0.6px;
+  letter-spacing: 0.7px;
 }
 
+/* Input and Select - BLACK TEXT */
 .field input,
 .field select {
   padding: 10px 14px;
@@ -79,50 +83,72 @@ body {
   border: 1.5px solid #e5e7eb;
   font-size: 14px;
   font-family: inherit;
+  font-weight: 500;
   outline: none;
-  transition: border-color 0.2s, box-shadow 0.2s;
-  background: #fafafa;
+  transition: border-color 0.2s, box-shadow 0.2s, background 0.2s;
+  background: #f9fafb;
   color: #000000;
+  -webkit-text-fill-color: #000000;
+  appearance: auto;
 }
 
 .field input:focus,
 .field select:focus {
   border-color: #6366f1;
-  background: #fff;
-  box-shadow: 0 0 0 3px rgba(99, 102, 241, 0.1);
+  background: #ffffff;
+  box-shadow: 0 0 0 3px rgba(99, 102, 241, 0.12);
+  color: #000000;
+  -webkit-text-fill-color: #000000;
+}
+
+.field input:hover,
+.field select:hover {
+  border-color: #c4c9d4;
+  background: #f3f4f6;
 }
 
 .field input::placeholder {
   color: #9ca3af;
+  font-weight: 400;
+  -webkit-text-fill-color: #9ca3af;
 }
 
 .field select option {
   color: #000000;
   background: #ffffff;
+  font-weight: 500;
 }
 
+.field select:invalid,
+.field select option[value=""] {
+  color: #9ca3af;
+}
+
+/* Generate Button */
 .generate-btn {
   padding: 12px 0;
   border-radius: 10px;
-  background: linear-gradient(135deg, #6366f1, #8b5cf6);
-  color: #fff;
+  background: linear-gradient(135deg, #6366f1 0%, #8b5cf6 100%);
+  color: #ffffff;
   border: none;
   font-size: 15px;
   font-weight: 600;
   cursor: pointer;
   font-family: inherit;
-  transition: opacity 0.15s, transform 0.1s;
-  margin-top: 4px;
+  transition: opacity 0.15s, transform 0.12s;
+  margin-top: 2px;
   letter-spacing: 0.2px;
+  width: 100%;
 }
 
 .generate-btn:hover:not(:disabled) {
-  opacity: 0.92;
+  opacity: 0.91;
   transform: translateY(-1px);
 }
 
 .generate-btn:active:not(:disabled) {
-  transform: translateY(0px);
+  transform: translateY(0);
+  opacity: 1;
 }
 
 .generate-btn:disabled {
@@ -141,19 +167,21 @@ body {
 .btn-spinner {
   width: 14px;
   height: 14px;
-  border: 2px solid rgba(255,255,255,0.4);
-  border-top: 2px solid #fff;
+  border: 2px solid rgba(255, 255, 255, 0.35);
+  border-top: 2px solid #ffffff;
   border-radius: 50%;
   animation: spin 0.7s linear infinite;
   display: inline-block;
+  flex-shrink: 0;
 }
 
+/* Loading */
 .loading-box {
   display: flex;
   flex-direction: column;
   align-items: center;
   gap: 14px;
-  padding: 40px 0;
+  padding: 44px 0;
 }
 
 .loading-box p {
@@ -180,22 +208,23 @@ body {
   50%       { opacity: 0; }
 }
 
+/* Result Box */
 .result-box {
   background: #ffffff;
   border-radius: 16px;
   border: 1px solid #e5e7eb;
   padding: 24px;
-  box-shadow: 0 1px 4px rgba(0,0,0,0.06);
+  box-shadow: 0 1px 3px rgba(0, 0, 0, 0.07);
   display: flex;
   flex-direction: column;
-  gap: 0;
 }
 
+/* Project Title Banner */
 .project-title {
   background: linear-gradient(135deg, #6366f1 0%, #8b5cf6 100%);
   border-radius: 12px;
   padding: 18px 20px;
-  margin-bottom: 20px;
+  margin-bottom: 8px;
   display: flex;
   justify-content: space-between;
   align-items: center;
@@ -205,24 +234,25 @@ body {
 .project-title-left {
   display: flex;
   flex-direction: column;
-  gap: 4px;
+  gap: 5px;
 }
 
 .project-label {
   font-size: 10px;
-  color: rgba(255,255,255,0.7);
+  color: rgba(255, 255, 255, 0.65);
   font-weight: 600;
   text-transform: uppercase;
-  letter-spacing: 1px;
+  letter-spacing: 1.2px;
 }
 
 .project-name {
-  font-size: 18px;
+  font-size: 17px;
   font-weight: 700;
-  color: #fff;
-  line-height: 1.3;
+  color: #ffffff;
+  line-height: 1.35;
 }
 
+/* Section */
 .section {
   border-bottom: 1px solid #f3f4f6;
   padding: 18px 0;
@@ -230,22 +260,26 @@ body {
 
 .section:last-child {
   border-bottom: none;
-  padding-bottom: 0;
+  padding-bottom: 4px;
 }
 
+/* Section Header */
 .section-header {
   display: flex;
   justify-content: space-between;
   align-items: center;
   margin-bottom: 10px;
+  gap: 8px;
 }
 
 .section-title {
   font-weight: 600;
-  font-size: 14px;
+  font-size: 13.5px;
   color: #1f2937;
+  line-height: 1.4;
 }
 
+/* Copy Button */
 .copy-btn {
   display: flex;
   align-items: center;
@@ -261,18 +295,20 @@ body {
   font-family: inherit;
   font-weight: 500;
   white-space: nowrap;
+  flex-shrink: 0;
 }
 
 .copy-btn:hover {
   background: #f3f4f6;
   border-color: #d1d5db;
-  color: #374151;
+  color: #111111;
 }
 
 .copy-btn:active {
-  transform: scale(0.97);
+  transform: scale(0.96);
 }
 
+/* Section Content */
 .section-content p {
   font-size: 14px;
   color: #374151;
@@ -280,6 +316,7 @@ body {
   margin: 0;
 }
 
+/* List Items */
 .list-item {
   font-size: 14px;
   color: #374151;
@@ -293,10 +330,11 @@ body {
   position: absolute;
   left: 0;
   color: #6366f1;
-  font-size: 12px;
-  top: 5px;
+  font-size: 11px;
+  top: 6px;
 }
 
+/* Code Block */
 .code-block {
   background: #0f1117;
   border-radius: 10px;
@@ -316,17 +354,25 @@ body {
   margin: 0;
 }
 
+/* Responsive */
 @media (max-width: 600px) {
   .container {
-    padding: 16px;
+    padding: 14px;
+  }
+
+  .header {
+    padding: 32px 0 24px;
   }
 
   .header h1 {
     font-size: 22px;
   }
 
-  .result-box,
   .form {
+    padding: 20px 16px;
+  }
+
+  .result-box {
     padding: 16px;
   }
 
@@ -338,6 +384,6 @@ body {
 
   .section-header {
     flex-direction: row;
-    align-items: center;
+    align-items: flex-start;
   }
 }
