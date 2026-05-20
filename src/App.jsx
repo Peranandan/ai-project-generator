@@ -4,16 +4,28 @@ import "./App.css";
 function CopyButton({ text }) {
   const [copied, setCopied] = useState(false);
 
-  const handleCopy = () => {
+  const copy = () => {
     navigator.clipboard.writeText(text);
     setCopied(true);
     setTimeout(() => setCopied(false), 1200);
   };
 
   return (
-    <button className={`copy-btn ${copied ? "copied" : ""}`} onClick={handleCopy}>
+    <button className={`copy-btn ${copied ? "copied" : ""}`} onClick={copy}>
       {copied ? "✓ Copied" : "Copy"}
     </button>
+  );
+}
+
+function Block({ title, content }) {
+  return (
+    <div className="block">
+      <div className="block-head">
+        <span className="block-title">{title}</span>
+        <CopyButton text={content} />
+      </div>
+      <pre className="block-content">{content}</pre>
+    </div>
   );
 }
 
@@ -22,23 +34,12 @@ export default function App() {
   const [technology, setTechnology] = useState("");
   const [level, setLevel] = useState("");
 
-  const [messages, setMessages] = useState([]);
+  const [result, setResult] = useState(null);
   const [loading, setLoading] = useState(false);
 
   const API_URL = import.meta.env.VITE_BACKEND_URL + "/generate";
 
-  const typeText = (text, callback) => {
-    let i = 0;
-    const speed = 6;
-
-    const interval = setInterval(() => {
-      i++;
-      callback(text.slice(0, i));
-      if (i >= text.length) clearInterval(interval);
-    }, speed);
-  };
-
-  const getSection = (text, start, end) => {
+  const parse = (text, start, end) => {
     const regex = end
       ? new RegExp(`${start}:(.*?)${end}:`, "s")
       : new RegExp(`${start}:(.*)`, "s");
@@ -46,14 +47,11 @@ export default function App() {
     return text.match(regex)?.[1]?.trim() || "";
   };
 
-  const generateProject = async () => {
+  const generate = async () => {
     if (!department || !technology || !level) return;
 
-    const userText = `Dept: ${department} | Tech: ${technology} | Level: ${level}`;
-
-    setMessages((prev) => [...prev, { role: "user", text: userText }]);
-
     setLoading(true);
+    setResult(null);
 
     const res = await fetch(API_URL, {
       method: "POST",
@@ -64,98 +62,92 @@ export default function App() {
     const data = await res.json();
     const text = data.result;
 
-    const finalText = `
-Title: ${getSection(text, "Title", "Explanation")}
-
-Explanation: ${getSection(text, "Explanation", "Features")}
-
-Features: ${getSection(text, "Features", "Implementation")}
-
-Implementation: ${getSection(text, "Implementation", "Code")}
-
-Code:
-${getSection(text, "Code")}
-`;
-
-    setMessages((prev) => [...prev, { role: "ai", text: "" }]);
+    setResult({
+      title: parse(text, "Title", "Explanation"),
+      explanation: parse(text, "Explanation", "Features"),
+      features: parse(text, "Features", "Implementation"),
+      implementation: parse(text, "Implementation", "Code"),
+      code: parse(text, "Code"),
+    });
 
     setLoading(false);
-
-    typeText(finalText, (val) => {
-      setMessages((prev) => {
-        const copy = [...prev];
-        copy[copy.length - 1] = { role: "ai", text: val };
-        return copy;
-      });
-    });
   };
 
+  const ready = department && technology && level;
+
   return (
-    <div className="app">
+    <div className="page">
 
-      {/* LEFT PANEL */}
-      <div className="sidebar">
+      {/* HEADER */}
+      <div className="header">
+        <h1>AI Project Generator</h1>
+        <p>Cost optimized AI tool for instant project ideas</p>
+      </div>
 
-        <h1 className="logo">AI Project Generator</h1>
+      {/* INPUT SECTION */}
+      <div className="input-card">
 
-        <div className="box">
-          <label>Department</label>
-          <select onChange={(e) => setDepartment(e.target.value)}>
-            <option value="">Select</option>
-            <option>CSE</option>
-            <option>ECE</option>
-            <option>IT</option>
-            <option>EEE</option>
-          </select>
+        <div className="grid">
+
+          <div className="field">
+            <label>Department</label>
+            <select onChange={(e) => setDepartment(e.target.value)}>
+              <option value="">Select</option>
+              <option>CSE</option>
+              <option>ECE</option>
+              <option>IT</option>
+              <option>EEE</option>
+              <option>MECH</option>
+              <option>CIVIL</option>
+            </select>
+          </div>
+
+          <div className="field">
+            <label>Technology</label>
+            <select onChange={(e) => setTechnology(e.target.value)}>
+              <option value="">Select</option>
+              <option>AI</option>
+              <option>IoT</option>
+              <option>Cloud</option>
+              <option>Cyber Security</option>
+              <option>Blockchain</option>
+            </select>
+          </div>
+
+          <div className="field">
+            <label>Level</label>
+            <select onChange={(e) => setLevel(e.target.value)}>
+              <option value="">Select</option>
+              <option>Easy</option>
+              <option>Medium</option>
+              <option>Hard</option>
+            </select>
+          </div>
+
         </div>
 
-        <div className="box">
-          <label>Technology</label>
-          <select onChange={(e) => setTechnology(e.target.value)}>
-            <option value="">Select</option>
-            <option>AI</option>
-            <option>IoT</option>
-            <option>Cloud</option>
-            <option>Cyber Security</option>
-          </select>
-        </div>
-
-        <div className="box">
-          <label>Level</label>
-          <select onChange={(e) => setLevel(e.target.value)}>
-            <option value="">Select</option>
-            <option>Easy</option>
-            <option>Medium</option>
-            <option>Hard</option>
-          </select>
-        </div>
-
-        <button className="send-btn" onClick={generateProject} disabled={loading}>
-          {loading ? "Generating..." : "Generate"}
+        <button
+          className={`btn ${ready ? "active" : ""}`}
+          onClick={generate}
+          disabled={loading}
+        >
+          {loading ? "Generating..." : "Generate Project"}
         </button>
 
       </div>
 
-      {/* CHAT AREA */}
-      <div className="chat">
+      {/* OUTPUT */}
+      {result && (
+        <div className="output">
 
-        {messages.map((msg, i) => (
-          <div key={i} className={`msg ${msg.role}`}>
+          <Block title="TITLE" content={result.title} />
+          <Block title="EXPLANATION" content={result.explanation} />
+          <Block title="FEATURES" content={result.features} />
+          <Block title="IMPLEMENTATION" content={result.implementation} />
+          <Block title="CODE" content={result.code} />
 
-            <div className="bubble">
-
-              <pre>{msg.text}</pre>
-
-              {msg.role === "ai" && msg.text && (
-                <CopyButton text={msg.text} />
-              )}
-
-            </div>
-
-          </div>
-        ))}
-
-      </div>
+        </div>
+      )}
 
     </div>
   );

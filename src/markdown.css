@@ -1,8 +1,8 @@
 @import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap');
 
-/* =========================
-   BASE
-========================= */
+/* ======================
+   GLOBAL
+====================== */
 * {
   margin: 0;
   padding: 0;
@@ -11,181 +11,161 @@
 
 body {
   font-family: "Inter", sans-serif;
-  background: #ffffff;
-  color: #000000;
-}
-
-/* =========================
-   MAIN LAYOUT
-========================= */
-.app {
-  display: flex;
-  height: 100vh;
   background: #fff;
+  color: #000;
 }
 
-/* =========================
-   SIDEBAR
-========================= */
-.sidebar {
-  width: 280px;
-  background: #ffffff;
-  border-right: 1px solid #e5e5e5;
-  padding: 20px;
-  display: flex;
-  flex-direction: column;
-  gap: 18px;
+/* ======================
+   PAGE
+====================== */
+.page {
+  max-width: 850px;
+  margin: auto;
+  padding: 30px 18px;
 }
 
-.logo {
-  font-size: 18px;
+/* ======================
+   HEADER
+====================== */
+.header {
+  text-align: center;
+  margin-bottom: 25px;
+}
+
+.header h1 {
+  font-size: 30px;
   font-weight: 700;
-  margin-bottom: 10px;
 }
 
-/* INPUT BOX */
-.box {
+.header p {
+  font-size: 14px;
+  color: #444;
+}
+
+/* ======================
+   INPUT CARD
+====================== */
+.input-card {
+  border: 1px solid #e5e5e5;
+  border-radius: 14px;
+  padding: 18px;
+  background: #fff;
+  margin-bottom: 22px;
+}
+
+/* GRID */
+.grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 12px;
+}
+
+/* FIELD */
+.field {
   display: flex;
   flex-direction: column;
   gap: 6px;
 }
 
-.box label {
+.field label {
   font-size: 12px;
   font-weight: 600;
-  color: #444;
+  color: #333;
+  text-transform: uppercase;
 }
 
-/* SELECT */
-.box select {
+/* SELECT BOX */
+select {
   padding: 10px;
   border: 1px solid #ddd;
   border-radius: 8px;
   background: #fff;
   color: #000;
-  outline: none;
   font-size: 14px;
+  outline: none;
 }
 
-.box select:focus {
+select:focus {
   border-color: #000;
 }
 
 /* BUTTON */
-.send-btn {
-  margin-top: 10px;
+.btn {
+  width: 100%;
+  margin-top: 14px;
   padding: 12px;
+  border-radius: 10px;
+  border: none;
   background: #000;
   color: #fff;
-  border: none;
-  border-radius: 8px;
   font-weight: 600;
   cursor: pointer;
   transition: 0.2s;
 }
 
-.send-btn:hover {
+.btn.active:hover {
   background: #222;
 }
 
-.send-btn:disabled {
-  opacity: 0.6;
-  cursor: not-allowed;
-}
-
-/* =========================
-   CHAT AREA
-========================= */
-.chat {
-  flex: 1;
-  padding: 20px;
-  overflow-y: auto;
-  background: #fff;
+/* ======================
+   OUTPUT
+====================== */
+.output {
   display: flex;
   flex-direction: column;
-  gap: 16px;
+  gap: 12px;
 }
 
-/* MESSAGE WRAPPER */
-.msg {
-  display: flex;
-}
-
-/* USER MESSAGE */
-.msg.user {
-  justify-content: flex-end;
-}
-
-.msg.user .bubble {
-  background: #000;
-  color: #fff;
-  border-radius: 14px 14px 0 14px;
-}
-
-/* AI MESSAGE */
-.msg.ai {
-  justify-content: flex-start;
-}
-
-.msg.ai .bubble {
-  background: #f5f5f5;
-  color: #000;
-  border-radius: 14px 14px 14px 0;
+/* BLOCK */
+.block {
   border: 1px solid #e5e5e5;
+  border-radius: 12px;
+  padding: 14px;
+  background: #fff;
 }
 
-/* BUBBLE */
-.bubble {
-  max-width: 70%;
-  padding: 14px;
+/* HEADER */
+.block-head {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 8px;
+}
+
+.block-title {
+  font-size: 12px;
+  font-weight: 700;
+  letter-spacing: 1px;
+  padding: 4px 8px;
+  background: #f3f3f3;
+  border-radius: 6px;
+}
+
+/* CONTENT */
+.block-content {
   font-size: 14px;
+  color: #000;
   line-height: 1.6;
-  position: relative;
   white-space: pre-wrap;
 }
 
-/* =========================
+/* ======================
    COPY BUTTON
-========================= */
+====================== */
 .copy-btn {
-  margin-top: 10px;
-  padding: 6px 10px;
   font-size: 12px;
+  padding: 5px 10px;
+  border-radius: 6px;
   border: 1px solid #ddd;
   background: #fff;
-  color: #000;
-  border-radius: 6px;
   cursor: pointer;
-  float: right;
-  transition: 0.2s;
 }
 
 .copy-btn:hover {
-  background: #f2f2f2;
+  background: #f5f5f5;
 }
 
 .copy-btn.copied {
   background: #000;
   color: #fff;
-}
-
-/* =========================
-   CODE BLOCK STYLE
-========================= */
-pre {
-  white-space: pre-wrap;
-  word-wrap: break-word;
-  font-family: monospace;
-}
-
-/* =========================
-   SCROLLBAR CLEAN
-========================= */
-.chat::-webkit-scrollbar {
-  width: 6px;
-}
-
-.chat::-webkit-scrollbar-thumb {
-  background: #ddd;
-  border-radius: 10px;
 }
