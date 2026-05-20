@@ -107,56 +107,113 @@ input::placeholder{
   transform:none;
 }
 
+/* RESULT BOX */
 .result-box{
   width:100%;
   margin-top:35px;
+  display:flex;
+  flex-direction:column;
+  gap:16px;
+}
+
+/* PROJECT TITLE */
+.project-title{
+  background:#000;
+  color:#fff;
+  border-radius:16px;
+  padding:22px 28px;
+  display:flex;
+  align-items:center;
+  justify-content:space-between;
+  font-size:24px;
+  font-weight:700;
+  gap:12px;
+}
+
+/* SECTION */
+.section{
   background:#fff;
   border:2px solid #000;
   border-radius:16px;
-  padding:28px 32px;
+  overflow:hidden;
 }
 
-.result-title{
-  font-size:26px;
-  font-weight:700;
-  color:#000;
-  margin-bottom:20px;
-  padding-bottom:14px;
+/* SECTION HEADER */
+.section-header{
+  display:flex;
+  align-items:center;
+  justify-content:space-between;
+  padding:14px 22px;
   border-bottom:2px solid #000;
+  background:#f9f9f9;
 }
 
-.result-section{
-  margin-bottom:14px;
-  font-size:17px;
-  line-height:1.7;
-}
-
-.result-label{
+/* SECTION TITLE */
+.section-title{
+  font-size:16px;
   font-weight:700;
   color:#000;
-  margin-right:6px;
+  text-transform:uppercase;
+  letter-spacing:0.5px;
 }
 
-.result-value{
-  color:#222;
-  font-weight:400;
+/* COPY BUTTON */
+.copy-btn{
+  background:#000;
+  color:#fff;
+  border:none;
+  border-radius:8px;
+  padding:6px 14px;
+  font-size:13px;
+  font-weight:600;
+  cursor:pointer;
+  transition:0.2s;
+  white-space:nowrap;
 }
 
-.result-step{
+.copy-btn:hover{
+  background:#333;
+}
+
+/* SECTION CONTENT */
+.section-content{
+  padding:18px 22px;
+}
+
+.section-content p{
   font-size:16px;
-  color:#222;
   line-height:1.8;
-  padding-left:16px;
+  color:#222;
+}
+
+/* LIST ITEM */
+.list-item{
+  font-size:16px;
+  line-height:1.8;
+  color:#222;
+  padding:4px 0;
+  padding-left:8px;
+  border-left:3px solid #000;
   margin-bottom:6px;
 }
 
-.result-line{
-  font-size:16px;
-  color:#333;
-  line-height:1.8;
-  margin-bottom:4px;
+/* CODE BLOCK */
+.code-block{
+  background:#1a1a1a;
+  border-radius:0 0 14px 14px;
 }
 
+.code-block pre{
+  color:#f8f8f2;
+  font-family:"Courier New", monospace;
+  font-size:14px;
+  line-height:1.7;
+  white-space:pre-wrap;
+  word-break:break-word;
+  padding:18px 22px;
+}
+
+/* MOBILE */
 @media(max-width:768px){
 
   .page{
@@ -185,18 +242,18 @@ input::placeholder{
     font-size:22px;
   }
 
-  .result-box{
-    padding:20px;
+  .project-title{
+    font-size:19px;
+    padding:18px 20px;
   }
 
-  .result-title{
-    font-size:22px;
-  }
-
-  .result-section,
-  .result-step,
-  .result-line{
+  .section-content p,
+  .list-item{
     font-size:15px;
+  }
+
+  .code-block pre{
+    font-size:13px;
   }
 
 }
