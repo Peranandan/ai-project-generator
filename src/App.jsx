@@ -18,10 +18,15 @@ export default function App() {
   const [result, setResult] =
     useState("");
 
-  // CHANGE THIS
+  // =========================
+  // YOUR RENDER BACKEND URL
+  // =========================
   const API_URL =
-    "https://YOUR-BACKEND.onrender.com/generate";
+    "https://ai-project-generator-r62k.onrender.com/generate";
 
+  // =========================
+  // GENERATE FUNCTION
+  // =========================
   const generateProject = async () => {
 
     if (
@@ -44,7 +49,7 @@ export default function App() {
 
           headers: {
             "Content-Type":
-              "application/json",
+            "application/json",
           },
 
           body: JSON.stringify({
@@ -58,6 +63,8 @@ export default function App() {
       const data =
         await response.json();
 
+      console.log(data);
+
       if (data.success) {
 
         setResult(data.result);
@@ -70,7 +77,11 @@ export default function App() {
 
     } catch (error) {
 
-      alert("Server Error");
+      console.log(error);
+
+      alert(
+        "Backend not connected"
+      );
 
     } finally {
 
