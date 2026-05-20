@@ -1,6 +1,83 @@
+import { useState } from "react";
 import "./markdown.css";
 
 export default function App() {
+
+  const [department, setDepartment] =
+    useState("");
+
+  const [technology, setTechnology] =
+    useState("");
+
+  const [level, setLevel] =
+    useState("");
+
+  const [loading, setLoading] =
+    useState(false);
+
+  const [result, setResult] =
+    useState("");
+
+  // CHANGE THIS
+  const API_URL =
+    "https://YOUR-BACKEND.onrender.com/generate";
+
+  const generateProject = async () => {
+
+    if (
+      !department ||
+      !technology ||
+      !level
+    ) {
+      alert("Please fill all fields");
+      return;
+    }
+
+    try {
+
+      setLoading(true);
+
+      const response = await fetch(
+        API_URL,
+        {
+          method: "POST",
+
+          headers: {
+            "Content-Type":
+              "application/json",
+          },
+
+          body: JSON.stringify({
+            department,
+            technology,
+            level,
+          }),
+        }
+      );
+
+      const data =
+        await response.json();
+
+      if (data.success) {
+
+        setResult(data.result);
+
+      } else {
+
+        alert(data.error);
+
+      }
+
+    } catch (error) {
+
+      alert("Server Error");
+
+    } finally {
+
+      setLoading(false);
+
+    }
+  };
 
   return (
 
@@ -34,6 +111,12 @@ export default function App() {
             <input
               type="text"
               placeholder="Example: ECE"
+              value={department}
+              onChange={(e) =>
+                setDepartment(
+                  e.target.value
+                )
+              }
             />
 
           </div>
@@ -48,6 +131,12 @@ export default function App() {
             <input
               type="text"
               placeholder="Example: AI, IoT, Cloud"
+              value={technology}
+              onChange={(e) =>
+                setTechnology(
+                  e.target.value
+                )
+              }
             />
 
           </div>
@@ -59,14 +148,25 @@ export default function App() {
               Difficulty
             </label>
 
-            <select>
+            <select
+              value={level}
+              onChange={(e) =>
+                setLevel(
+                  e.target.value
+                )
+              }
+            >
 
-              <option>
-                Medium
+              <option value="">
+                Select Difficulty
               </option>
 
               <option>
                 Easy
+              </option>
+
+              <option>
+                Medium
               </option>
 
               <option>
@@ -78,13 +178,31 @@ export default function App() {
           </div>
 
           {/* BUTTON */}
-          <button className="generate-btn">
+          <button
+            className="generate-btn"
+            onClick={generateProject}
+          >
 
-            Generate Project
+            {loading
+              ? "Generating..."
+              : "Generate Project"}
 
           </button>
 
         </div>
+
+        {/* RESULT */}
+        {result && (
+
+          <div className="result-box">
+
+            <pre>
+              {result}
+            </pre>
+
+          </div>
+
+        )}
 
       </div>
 

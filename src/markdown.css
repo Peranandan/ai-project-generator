@@ -112,6 +112,23 @@ input::placeholder{
   transform:scale(1.01);
 }
 
+/* RESULT */
+.result-box{
+  width:100%;
+  margin-top:30px;
+  background:#fff;
+  border:2px solid #000;
+  border-radius:14px;
+  padding:20px;
+}
+
+.result-box pre{
+  white-space:pre-wrap;
+  font-size:16px;
+  line-height:1.7;
+  color:#000;
+}
+
 /* MOBILE */
 @media(max-width:768px){
 
