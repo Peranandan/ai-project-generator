@@ -30,9 +30,9 @@ export default function App() {
 
       <Navbar />
 
-      {/* MAIN */}
+      {/* MAIN CONTENT */}
 
-      <main className="main-content fade-in">
+      <main className="main-content">
 
         <Routes>
 

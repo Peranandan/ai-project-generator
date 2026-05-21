@@ -3,9 +3,6 @@ import { useState } from "react";
 
 export default function Navbar() {
 
-  const [menuOpen, setMenuOpen] =
-    useState(false);
-
   const [projectOpen, setProjectOpen] =
     useState(false);
 
@@ -24,13 +21,13 @@ export default function Navbar() {
       "NLP-powered intelligent chatbot system.",
 
       description:
-      "An AI-powered chatbot platform using Natural Language Processing and Machine Learning for automated customer support, query analysis, and smart conversations.",
+      "AI chatbot platform using Natural Language Processing and Machine Learning for automated customer conversations and support systems.",
 
       stack:
       "React, Python, FastAPI, OpenAI API",
 
       modules:
-      "Authentication, Chat Engine, AI Responses, Dashboard",
+      "Authentication, AI Chat Engine, Dashboard, Analytics",
     },
 
     {
@@ -43,13 +40,13 @@ export default function Navbar() {
       "AI-based traffic prediction system.",
 
       description:
-      "A smart city traffic management platform using cameras and AI analytics to monitor traffic congestion and predict vehicle density.",
+      "Advanced smart city traffic monitoring system using AI camera analysis and real-time traffic prediction algorithms.",
 
       stack:
-      "React, TensorFlow, Node.js, MongoDB",
+      "TensorFlow, React, Node.js",
 
       modules:
-      "Vehicle Detection, Analytics, Admin Dashboard",
+      "Vehicle Detection, Live Monitoring, Prediction Engine",
     },
 
     {
@@ -59,16 +56,16 @@ export default function Navbar() {
       "https://images.unsplash.com/photo-1518770660439-4636190af475?q=80&w=1200&auto=format&fit=crop",
 
       short:
-      "Smart agriculture automation system.",
+      "Smart agriculture automation platform.",
 
       description:
-      "IoT-based farming system with sensors for monitoring soil, water, humidity, and crop conditions using cloud connectivity.",
+      "IoT-based farming solution with automated irrigation, sensor tracking, humidity monitoring, and cloud reports.",
 
       stack:
-      "IoT Sensors, Firebase, React",
+      "React, Firebase, IoT Sensors",
 
       modules:
-      "Sensor Tracking, Irrigation Automation, Reports",
+      "Sensor Dashboard, Irrigation, Reports",
     },
 
     {
@@ -78,16 +75,16 @@ export default function Navbar() {
       "https://images.unsplash.com/photo-1516321318423-f06f85e504b3?q=80&w=1200&auto=format&fit=crop",
 
       short:
-      "Threat detection using AI security.",
+      "AI-powered threat detection platform.",
 
       description:
-      "Cybersecurity monitoring platform for detecting threats, unusual behavior, and malicious activity using Artificial Intelligence.",
+      "Cybersecurity intelligence platform for monitoring suspicious behavior and AI-based attack detection systems.",
 
       stack:
-      "Python, AI Models, FastAPI, React",
+      "Python, FastAPI, AI Models",
 
       modules:
-      "Threat Scanner, Detection Engine, Security Reports",
+      "Threat Scanner, AI Detection, Reports",
     },
 
   ];
@@ -234,9 +231,8 @@ export default function Navbar() {
                           </h3>
 
                           <p>
-                            Click any project to
-                            view detailed generated
-                            project information.
+                            Click a project to view
+                            generated project details.
                           </p>
 
                         </div>
@@ -274,17 +270,6 @@ export default function Navbar() {
           </Link>
 
         </div>
-
-        {/* MOBILE */}
-
-        <button
-          className="mobile-menu-btn"
-          onClick={() =>
-            setMenuOpen(!menuOpen)
-          }
-        >
-          ☰
-        </button>
 
       </div>
 
