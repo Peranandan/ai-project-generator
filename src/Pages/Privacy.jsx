@@ -2,38 +2,47 @@ export default function Privacy() {
   return (
     <div className="page">
       <div className="container">
+
         <div className="static-page">
 
-          <h2>Privacy Policy</h2>
-          <p className="static-date">Last updated: January 2026</p>
+          <h1>Privacy Policy</h1>
 
-          <h3>Data We Collect</h3>
           <p>
-            We do not collect or store any personal data. Your inputs
-            (department, technology, difficulty) are sent to our backend
-            only to generate a project response and are not saved anywhere.
+            We respect your privacy and are committed to
+            protecting user information.
+          </p>
+
+          <h3>Information Collection</h3>
+
+          <p>
+            We do not permanently store the department,
+            technology, or project details submitted
+            through our platform.
           </p>
 
           <h3>Third-Party Services</h3>
+
           <p>
-            We use Google Gemini API to generate project content. Your
-            inputs are processed by Google's API. Please refer to
-            Google's Privacy Policy for their data practices.
+            AI-generated responses are processed using
+            third-party AI services such as Google Gemini APIs.
           </p>
 
           <h3>Cookies</h3>
+
           <p>
-            We do not use cookies or any tracking technologies on this
-            website.
+            Our website may use essential cookies for
+            improving user experience and performance.
           </p>
 
-          <h3>Changes</h3>
+          <h3>Security</h3>
+
           <p>
-            We may update this policy from time to time. Continued use
-            of the site means you accept any changes.
+            We take reasonable precautions to protect
+            user interactions and maintain platform security.
           </p>
 
         </div>
+
       </div>
     </div>
   );

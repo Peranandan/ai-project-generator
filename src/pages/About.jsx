@@ -2,26 +2,46 @@ export default function About() {
   return (
     <div className="page">
       <div className="container">
+
         <div className="static-page">
-          <h2>About</h2>
-          <p>AI Project Generator helps engineering students instantly generate complete project ideas using Google Gemini AI. Enter your department, technology, and difficulty level to get a full project with explanation, architecture, code, and step-by-step implementation.</p>
-          <h3>What We Offer</h3>
+
+          <h1>About Us</h1>
+
+          <p>
+            AI Project Generator is an educational AI platform
+            created to help engineering students generate
+            innovative academic project ideas quickly and efficiently.
+          </p>
+
+          <h3>Our Mission</h3>
+
+          <p>
+            Our mission is to simplify project research and
+            encourage creativity through artificial intelligence.
+            Students can instantly receive structured project
+            concepts tailored to their department and technology.
+          </p>
+
+          <h3>What We Provide</h3>
+
           <ul>
-            <li>Complete project ideas for all engineering branches</li>
-            <li>Working sample code for every project</li>
-            <li>Architecture overview and component list</li>
-            <li>Step-by-step implementation guide</li>
-            <li>Copy any section with one click</li>
+            <li>AI-generated engineering project ideas</li>
+            <li>Project explanation and implementation steps</li>
+            <li>Architecture and component suggestions</li>
+            <li>Educational code examples</li>
+            <li>Support for multiple engineering branches</li>
           </ul>
-          <h3>Technology Stack</h3>
-          <ul>
-            <li>Frontend: React + Vite, hosted on Vercel</li>
-            <li>Backend: FastAPI + Python, hosted on Render</li>
-            <li>AI: Google Gemini 2.5 Flash-Lite</li>
-          </ul>
-          <h3>Supported Branches</h3>
-          <p>CSE, ECE, EEE, MECH, CIVIL, IT, and all other engineering departments. Supports AI, IoT, Blockchain, Robotics, Cloud, Embedded Systems, and more.</p>
+
+          <h3>Supported Technologies</h3>
+
+          <p>
+            Artificial Intelligence, IoT, Robotics, Blockchain,
+            Cloud Computing, Cybersecurity, Embedded Systems,
+            Machine Learning, and many more.
+          </p>
+
         </div>
+
       </div>
     </div>
   );

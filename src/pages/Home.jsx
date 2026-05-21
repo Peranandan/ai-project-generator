@@ -22,7 +22,6 @@ export default function Home() {
 
     try {
       setLoading(true);
-      setResult("");
 
       const res = await fetch(API_URL, {
         method: "POST",
@@ -32,32 +31,22 @@ export default function Home() {
         body: JSON.stringify({ message }),
       });
 
-      if (!res.ok) {
-        throw new Error("Server Error");
-      }
-
       const data = await res.json();
 
-      console.log("BACKEND RESPONSE:", data);
-
-      if (data.response) {
-        setResult(data.response);
+      if (data.success === false) {
+        setResult(data.detail);
       }
-      else if (data.reply) {
-        setResult(data.reply);
+      else if (data.response) {
+        setResult(data.response);
       }
       else if (data.message) {
         setResult(data.message);
       }
-      else if (typeof data === "string") {
-        setResult(data);
-      }
       else {
-        setResult(JSON.stringify(data, null, 2));
+        setResult("No response generated.");
       }
 
     } catch (error) {
-      console.error(error);
       setResult("Backend connection failed.");
     } finally {
       setLoading(false);
@@ -68,69 +57,86 @@ export default function Home() {
     <div className="page">
       <div className="container">
 
-        <div className="header">
-          <div className="header-icon">⚡</div>
+        <div className="hero">
 
-          <h1>AI Project Generator</h1>
+          <div className="hero-left">
 
-          <p>
-            Generate complete engineering projects using AI
-          </p>
+            <div className="badge">
+              ⚡ Powered by Advanced AI
+            </div>
+
+            <h1>
+              AI Project Generator
+            </h1>
+
+            <p>
+              Generate unique and innovative engineering
+              projects tailored to your department,
+              technology, and difficulty level.
+            </p>
+
+          </div>
+
         </div>
 
-        <div className="form">
+        <div className="form-card">
 
-          <div className="field">
-            <label>Department</label>
+          <div className="form-grid">
 
-            <input
-              type="text"
-              placeholder="e.g. CSE"
-              value={department}
-              onChange={(e) =>
-                setDepartment(e.target.value)
-              }
-            />
-          </div>
+            <div className="field">
+              <label>Department</label>
 
-          <div className="field">
-            <label>Technology</label>
+              <input
+                type="text"
+                placeholder="Enter department (e.g. CSE)"
+                value={department}
+                onChange={(e) =>
+                  setDepartment(e.target.value)
+                }
+              />
+            </div>
 
-            <input
-              type="text"
-              placeholder="e.g. AI"
-              value={technology}
-              onChange={(e) =>
-                setTechnology(e.target.value)
-              }
-            />
-          </div>
+            <div className="field">
+              <label>Technology</label>
 
-          <div className="field">
-            <label>Difficulty</label>
+              <input
+                type="text"
+                placeholder="Enter technology (e.g. AI)"
+                value={technology}
+                onChange={(e) =>
+                  setTechnology(e.target.value)
+                }
+              />
+            </div>
 
-            <select
-              value={level}
-              onChange={(e) =>
-                setLevel(e.target.value)
-              }
-            >
-              <option value="">
-                Select Difficulty
-              </option>
+            <div className="field">
+              <label>Difficulty Level</label>
 
-              <option value="Easy">
-                Easy
-              </option>
+              <select
+                value={level}
+                onChange={(e) =>
+                  setLevel(e.target.value)
+                }
+              >
+                <option value="">
+                  Select level
+                </option>
 
-              <option value="Medium">
-                Medium
-              </option>
+                <option value="Easy">
+                  Easy
+                </option>
 
-              <option value="Hard">
-                Hard
-              </option>
-            </select>
+                <option value="Medium">
+                  Medium
+                </option>
+
+                <option value="Hard">
+                  Hard
+                </option>
+
+              </select>
+            </div>
+
           </div>
 
           <button
@@ -145,24 +151,45 @@ export default function Home() {
 
         </div>
 
-        {loading && (
-          <div className="loading-box">
-            <div className="spinner" />
-            <p>Generating your project...</p>
+        <div className="features">
+
+          <div className="feature-box">
+            <h3>AI Powered</h3>
+            <p>
+              Advanced AI generates high quality
+              engineering project ideas instantly.
+            </p>
           </div>
-        )}
+
+          <div className="feature-box">
+            <h3>Detailed Output</h3>
+            <p>
+              Get explanation, architecture,
+              components, and sample code.
+            </p>
+          </div>
+
+          <div className="feature-box">
+            <h3>Time Saving</h3>
+            <p>
+              Reduce hours of research and planning
+              using AI assistance.
+            </p>
+          </div>
+
+          <div className="feature-box">
+            <h3>Student Friendly</h3>
+            <p>
+              Designed specifically for engineering
+              students and academic projects.
+            </p>
+          </div>
+
+        </div>
 
         {result && (
           <div className="result-box">
-            <pre
-              style={{
-                whiteSpace: "pre-wrap",
-                lineHeight: "1.7",
-                fontSize: "14px",
-              }}
-            >
-              {result}
-            </pre>
+            <pre>{result}</pre>
           </div>
         )}
 
@@ -170,4 +197,3 @@ export default function Home() {
     </div>
   );
 }
-
