@@ -14,11 +14,14 @@ export default function Navbar() {
 
         {/* LOGO */}
 
-        <Link to="/" className="logo">
+        <Link
+          to="/"
+          className="logo"
+        >
           ⚡ AI Project Generator
         </Link>
 
-        {/* DESKTOP MENU */}
+        {/* DESKTOP LINKS */}
 
         <div className="nav-links">
 
@@ -41,19 +44,35 @@ export default function Navbar() {
             <div className="dropdown-content">
 
               <a href="#">
-                AI Chatbot System
+                🤖 AI Chatbot Assistant
               </a>
 
               <a href="#">
-                Smart Traffic Control
+                🚦 Smart Traffic Control
               </a>
 
               <a href="#">
-                IoT Smart Farming
+                🌱 IoT Smart Farming
               </a>
 
               <a href="#">
-                Face Recognition Attendance
+                🎓 Face Recognition Attendance
+              </a>
+
+              <a href="#">
+                ☁ Cloud File Storage System
+              </a>
+
+              <a href="#">
+                🔐 Cybersecurity Threat Detection
+              </a>
+
+              <a href="#">
+                🏥 AI Healthcare Monitoring
+              </a>
+
+              <a href="#">
+                📡 Smart Home Automation
               </a>
 
             </div>
@@ -78,7 +97,7 @@ export default function Navbar() {
 
         </div>
 
-        {/* MOBILE */}
+        {/* MOBILE BUTTON */}
 
         <button
           className="mobile-menu-btn"
@@ -128,6 +147,5 @@ export default function Navbar() {
       }
 
     </nav>
-
   );
 }

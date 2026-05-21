@@ -92,13 +92,13 @@ export default function Home() {
 
       <div className="container">
 
-        {/* HERO SECTION */}
+        {/* HERO */}
 
         <section className="hero">
 
           <div className="hero-grid">
 
-            {/* LEFT SIDE */}
+            {/* LEFT */}
 
             <div className="hero-left">
 
@@ -107,18 +107,17 @@ export default function Home() {
               </span>
 
               <h1>
-                Generate Smart
-                Engineering Projects
-                Using AI
+                Generate Engineering
+                Projects Using AI
               </h1>
 
               <p>
                 Build innovative engineering
-                projects, workflows,
-                implementation plans,
-                architecture, and technical
-                documentation instantly
-                using advanced AI tools.
+                projects, architecture,
+                workflows, implementation plans,
+                and technical documentation
+                instantly using advanced
+                artificial intelligence tools.
               </p>
 
               <button className="hero-btn">
@@ -127,13 +126,13 @@ export default function Home() {
 
             </div>
 
-            {/* RIGHT SIDE */}
+            {/* RIGHT */}
 
             <div className="hero-right">
 
               <img
-                src="https://images.unsplash.com/photo-1526379095098-d400fd0bf935?q=80&w=1400&auto=format&fit=crop"
-                alt="AI Technology"
+                src="https://images.unsplash.com/photo-1485827404703-89b55fcc595e?q=80&w=1400&auto=format&fit=crop"
+                alt="AI Robot"
               />
 
             </div>
@@ -142,7 +141,7 @@ export default function Home() {
 
         </section>
 
-        {/* PROJECT FORM */}
+        {/* FORM */}
 
         <section className="form-card">
 
@@ -247,7 +246,7 @@ export default function Home() {
 
         </section>
 
-        {/* FEATURE SECTION */}
+        {/* FEATURES */}
 
         <section className="features">
 
@@ -259,9 +258,9 @@ export default function Home() {
 
             <p>
               Generate innovative engineering
-              project ideas instantly
-              based on your department,
-              technology, and academic level.
+              project ideas instantly based
+              on your department and
+              technology stack.
             </p>
 
           </div>
@@ -269,13 +268,13 @@ export default function Home() {
           <div className="feature-box">
 
             <h3>
-              Smart Architecture
+              Architecture Planning
             </h3>
 
             <p>
-              Receive complete workflows,
-              architecture planning,
-              modules, implementation steps,
+              Get workflows, modules,
+              architecture design,
+              implementation strategy,
               and development guidance.
             </p>
 
@@ -284,14 +283,14 @@ export default function Home() {
           <div className="feature-box">
 
             <h3>
-              Latest Technologies
+              Advanced Technologies
             </h3>
 
             <p>
-              Supports AI, Machine Learning,
+              Supports Artificial Intelligence,
               Cloud Computing, IoT,
-              Blockchain, Robotics,
-              and Cybersecurity projects.
+              Cybersecurity, Robotics,
+              and Machine Learning.
             </p>
 
           </div>
@@ -300,23 +299,50 @@ export default function Home() {
 
         {/* SAMPLE PROJECTS */}
 
-        <section className="features">
+        <section
+          className="features"
+          style={{ marginTop:"40px" }}
+        >
 
           <div className="feature-box">
+
+            <img
+              src="https://images.unsplash.com/photo-1516321318423-f06f85e504b3?q=80&w=1200&auto=format&fit=crop"
+              alt="AI Chatbot"
+              style={{
+                width:"100%",
+                height:"180px",
+                objectFit:"cover",
+                borderRadius:"18px",
+                marginBottom:"18px",
+              }}
+            />
 
             <h3>
               AI Chatbot Assistant
             </h3>
 
             <p>
-              Intelligent chatbot system
-              using NLP and Machine Learning
-              for customer interaction.
+              Intelligent customer support
+              chatbot using Natural Language
+              Processing and Machine Learning.
             </p>
 
           </div>
 
           <div className="feature-box">
+
+            <img
+              src="https://images.unsplash.com/photo-1504384308090-c894fdcc538d?q=80&w=1200&auto=format&fit=crop"
+              alt="Traffic System"
+              style={{
+                width:"100%",
+                height:"180px",
+                objectFit:"cover",
+                borderRadius:"18px",
+                marginBottom:"18px",
+              }}
+            />
 
             <h3>
               Smart Traffic System
@@ -324,7 +350,7 @@ export default function Home() {
 
             <p>
               AI-powered traffic monitoring
-              and signal optimization
+              and smart signal management
               using computer vision.
             </p>
 
@@ -332,14 +358,27 @@ export default function Home() {
 
           <div className="feature-box">
 
+            <img
+              src="https://images.unsplash.com/photo-1464226184884-fa280b87c399?q=80&w=1200&auto=format&fit=crop"
+              alt="Smart Farming"
+              style={{
+                width:"100%",
+                height:"180px",
+                objectFit:"cover",
+                borderRadius:"18px",
+                marginBottom:"18px",
+              }}
+            />
+
             <h3>
               IoT Smart Farming
             </h3>
 
             <p>
-              Automated irrigation and
-              crop monitoring system
-              using IoT sensors.
+              Smart agriculture system
+              using IoT sensors for
+              automated irrigation and
+              crop monitoring.
             </p>
 
           </div>
@@ -374,6 +413,5 @@ export default function Home() {
       </div>
 
     </div>
-
   );
 }
