@@ -1,5 +1,5 @@
 import { useState } from "react";
-import "./markdown.css";
+import "../markdown.css";
 
 export default function Home() {
   const [department, setDepartment] = useState("");
