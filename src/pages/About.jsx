@@ -1,48 +1,92 @@
 export default function About() {
+
   return (
+
     <div className="page">
+
       <div className="container">
 
         <div className="static-page">
 
-          <h1>About Us</h1>
+          <div className="hero-grid">
 
-          <p>
-            AI Project Generator is an educational AI platform
-            created to help engineering students generate
-            innovative academic project ideas quickly and efficiently.
-          </p>
+            {/* LEFT */}
 
-          <h3>Our Mission</h3>
+            <div className="hero-left">
 
-          <p>
-            Our mission is to simplify project research and
-            encourage creativity through artificial intelligence.
-            Students can instantly receive structured project
-            concepts tailored to their department and technology.
-          </p>
+              <span className="page-badge">
+                About Platform
+              </span>
 
-          <h3>What We Provide</h3>
+              <h1>
+                Smart AI Solutions
+                For Engineering Students
+              </h1>
 
-          <ul>
-            <li>AI-generated engineering project ideas</li>
-            <li>Project explanation and implementation steps</li>
-            <li>Architecture and component suggestions</li>
-            <li>Educational code examples</li>
-            <li>Support for multiple engineering branches</li>
-          </ul>
+              <p className="page-intro">
+                AI Project Generator helps students,
+                developers, and researchers generate
+                innovative project ideas instantly
+                using artificial intelligence.
+              </p>
 
-          <h3>Supported Technologies</h3>
+            </div>
 
-          <p>
-            Artificial Intelligence, IoT, Robotics, Blockchain,
-            Cloud Computing, Cybersecurity, Embedded Systems,
-            Machine Learning, and many more.
-          </p>
+            {/* RIGHT */}
+
+            <div className="hero-right">
+
+              <img
+                src="https://images.unsplash.com/photo-1516321318423-f06f85e504b3?q=80&w=1200&auto=format&fit=crop"
+                alt="About AI"
+              />
+
+            </div>
+
+          </div>
+
+          <div className="features">
+
+            <div className="feature-box">
+
+              <h3>⚡ AI Powered</h3>
+
+              <p>
+                Generate engineering projects instantly
+                with advanced AI models.
+              </p>
+
+            </div>
+
+            <div className="feature-box">
+
+              <h3>📚 Academic Support</h3>
+
+              <p>
+                Built for mini projects,
+                major projects, and research work.
+              </p>
+
+            </div>
+
+            <div className="feature-box">
+
+              <h3>🚀 Faster Workflow</h3>
+
+              <p>
+                Save research time and improve
+                productivity with AI assistance.
+              </p>
+
+            </div>
+
+          </div>
 
         </div>
 
       </div>
+
     </div>
+
   );
 }

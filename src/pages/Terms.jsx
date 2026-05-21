@@ -1,48 +1,85 @@
 export default function Terms() {
+
   return (
+
     <div className="page">
+
       <div className="container">
 
         <div className="static-page">
 
-          <h1>Terms of Service</h1>
+          <div className="hero-grid">
 
-          <p>
-            By using AI Project Generator, you agree to
-            comply with these terms and conditions.
-          </p>
+            <div className="hero-left">
 
-          <h3>Educational Use</h3>
+              <span className="page-badge">
+                Terms Of Service
+              </span>
 
-          <p>
-            This platform is intended for educational
-            and research purposes only.
-          </p>
+              <h1>
+                Platform Usage Guidelines
+              </h1>
 
-          <h3>User Responsibility</h3>
+              <p className="page-intro">
+                Please review the following terms
+                before using our AI project platform.
+              </p>
 
-          <p>
-            Users are responsible for reviewing and
-            validating AI-generated content before use.
-          </p>
+            </div>
 
-          <h3>Service Availability</h3>
+            <div className="hero-right">
 
-          <p>
-            We may modify, pause, or discontinue services
-            at any time without prior notice.
-          </p>
+              <img
+                src="https://images.unsplash.com/photo-1450101499163-c8848c66ca85?q=80&w=1200&auto=format&fit=crop"
+                alt="Terms"
+              />
 
-          <h3>Content Accuracy</h3>
+            </div>
 
-          <p>
-            While we aim to provide high-quality results,
-            AI-generated outputs may contain inaccuracies.
-          </p>
+          </div>
+
+          <div className="features">
+
+            <div className="feature-box">
+
+              <h3>📚 Educational Usage</h3>
+
+              <p>
+                Projects are intended for educational
+                and research purposes.
+              </p>
+
+            </div>
+
+            <div className="feature-box">
+
+              <h3>⚠ User Responsibility</h3>
+
+              <p>
+                Verify all generated content
+                before implementation.
+              </p>
+
+            </div>
+
+            <div className="feature-box">
+
+              <h3>🔄 Service Updates</h3>
+
+              <p>
+                Platform features may change
+                without prior notice.
+              </p>
+
+            </div>
+
+          </div>
 
         </div>
 
       </div>
+
     </div>
+
   );
 }

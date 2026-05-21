@@ -1,48 +1,84 @@
 export default function Contact() {
+
   return (
+
     <div className="page">
+
       <div className="container">
 
         <div className="static-page">
 
-          <h1>Contact Us</h1>
+          <div className="hero-grid">
 
-          <p>
-            We welcome questions, feedback, partnership
-            inquiries, and technical issue reports.
-          </p>
+            <div className="hero-left">
 
-          <h3>Email Support</h3>
+              <span className="page-badge">
+                Contact Support
+              </span>
 
-          <p>
-            support@aiprojectgenerator.com
-          </p>
+              <h1>
+                We Are Ready To Help
+              </h1>
 
-          <h3>Technical Assistance</h3>
+              <p className="page-intro">
+                Reach out for technical support,
+                suggestions, partnership inquiries,
+                or feedback about our platform.
+              </p>
 
-          <p>
-            If you encounter issues while generating projects,
-            please include your selected department,
-            technology, and difficulty level when contacting us.
-          </p>
+            </div>
 
-          <h3>Business Hours</h3>
+            <div className="hero-right">
 
-          <p>
-            Monday to Saturday — 9:00 AM to 6:00 PM IST
-          </p>
+              <img
+                src="https://images.unsplash.com/photo-1521791136064-7986c2920216?q=80&w=1200&auto=format&fit=crop"
+                alt="Contact"
+              />
 
-          <h3>Our Goal</h3>
+            </div>
 
-          <p>
-            We aim to provide engineering students with
-            fast, accessible, and reliable AI-powered
-            educational tools.
-          </p>
+          </div>
+
+          <div className="contact-grid">
+
+            <div className="contact-card">
+
+              <h3>📧 Email</h3>
+
+              <p>
+                support@aiprojectgenerator.com
+              </p>
+
+            </div>
+
+            <div className="contact-card">
+
+              <h3>⏱ Response Time</h3>
+
+              <p>
+                Usually within 24 hours.
+              </p>
+
+            </div>
+
+            <div className="contact-card">
+
+              <h3>🛠 Technical Support</h3>
+
+              <p>
+                Share your issue details
+                for faster assistance.
+              </p>
+
+            </div>
+
+          </div>
 
         </div>
 
       </div>
+
     </div>
+
   );
 }

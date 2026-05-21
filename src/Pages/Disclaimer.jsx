@@ -1,48 +1,86 @@
 export default function Disclaimer() {
+
   return (
+
     <div className="page">
+
       <div className="container">
 
         <div className="static-page">
 
-          <h1>Disclaimer</h1>
+          <div className="hero-grid">
 
-          <p>
-            AI Project Generator provides educational
-            content generated using artificial intelligence.
-          </p>
+            <div className="hero-left">
 
-          <h3>No Professional Advice</h3>
+              <span className="page-badge">
+                Disclaimer
+              </span>
 
-          <p>
-            The generated content should not be considered
-            professional engineering or academic advice.
-          </p>
+              <h1>
+                Important Educational Notice
+              </h1>
 
-          <h3>Accuracy Notice</h3>
+              <p className="page-intro">
+                AI-generated content should always
+                be reviewed carefully before
+                academic or production usage.
+              </p>
 
-          <p>
-            AI-generated responses may contain incomplete
-            or outdated information.
-          </p>
+            </div>
 
-          <h3>User Verification</h3>
+            <div className="hero-right">
 
-          <p>
-            Users should independently verify all generated
-            project information and code before implementation.
-          </p>
+              <img
+                src="https://images.unsplash.com/photo-1520607162513-77705c0f0d4a?q=80&w=1200&auto=format&fit=crop"
+                alt="Disclaimer"
+              />
 
-          <h3>Limitation of Liability</h3>
+            </div>
 
-          <p>
-            We are not responsible for any damages or
-            issues arising from the use of generated content.
-          </p>
+          </div>
+
+          <div className="features">
+
+            <div className="feature-box">
+
+              <h3>🤖 AI Generated</h3>
+
+              <p>
+                Content is generated using
+                artificial intelligence models.
+              </p>
+
+            </div>
+
+            <div className="feature-box">
+
+              <h3>📖 Reference Only</h3>
+
+              <p>
+                Generated results are intended
+                for learning support.
+              </p>
+
+            </div>
+
+            <div className="feature-box">
+
+              <h3>✅ Verification Required</h3>
+
+              <p>
+                Users should verify all
+                technical information independently.
+              </p>
+
+            </div>
+
+          </div>
 
         </div>
 
       </div>
+
     </div>
+
   );
 }

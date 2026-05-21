@@ -1,49 +1,85 @@
 export default function Privacy() {
+
   return (
+
     <div className="page">
+
       <div className="container">
 
         <div className="static-page">
 
-          <h1>Privacy Policy</h1>
+          <div className="hero-grid">
 
-          <p>
-            We respect your privacy and are committed to
-            protecting user information.
-          </p>
+            <div className="hero-left">
 
-          <h3>Information Collection</h3>
+              <span className="page-badge">
+                Privacy Policy
+              </span>
 
-          <p>
-            We do not permanently store the department,
-            technology, or project details submitted
-            through our platform.
-          </p>
+              <h1>
+                Your Privacy Matters
+              </h1>
 
-          <h3>Third-Party Services</h3>
+              <p className="page-intro">
+                We value transparency and ensure
+                responsible handling of user interactions
+                on our platform.
+              </p>
 
-          <p>
-            AI-generated responses are processed using
-            third-party AI services such as Google Gemini APIs.
-          </p>
+            </div>
 
-          <h3>Cookies</h3>
+            <div className="hero-right">
 
-          <p>
-            Our website may use essential cookies for
-            improving user experience and performance.
-          </p>
+              <img
+                src="https://images.unsplash.com/photo-1563013544-824ae1b704d3?q=80&w=1200&auto=format&fit=crop"
+                alt="Privacy"
+              />
 
-          <h3>Security</h3>
+            </div>
 
-          <p>
-            We take reasonable precautions to protect
-            user interactions and maintain platform security.
-          </p>
+          </div>
+
+          <div className="features">
+
+            <div className="feature-box">
+
+              <h3>🔒 Secure Usage</h3>
+
+              <p>
+                Your project inputs are handled securely.
+              </p>
+
+            </div>
+
+            <div className="feature-box">
+
+              <h3>☁ AI Processing</h3>
+
+              <p>
+                AI-generated results may use
+                trusted external AI services.
+              </p>
+
+            </div>
+
+            <div className="feature-box">
+
+              <h3>📄 Transparency</h3>
+
+              <p>
+                We aim for clear communication
+                regarding user privacy.
+              </p>
+
+            </div>
+
+          </div>
 
         </div>
 
       </div>
+
     </div>
+
   );
 }

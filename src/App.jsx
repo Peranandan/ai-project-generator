@@ -1,5 +1,3 @@
-// src/App.jsx
-
 import { Routes, Route } from "react-router-dom";
 
 import Navbar from "./components/Navbar";
@@ -13,26 +11,60 @@ import Terms from "./pages/Terms";
 import Disclaimer from "./pages/Disclaimer";
 
 export default function App() {
+
   return (
+
     <div className="app-layout">
+
+      {/* NAVBAR */}
 
       <Navbar />
 
+      {/* MAIN */}
+
       <main className="main-content">
+
         <Routes>
 
-          <Route path="/" element={<Home />} />
-          <Route path="/about" element={<About />} />
-          <Route path="/contact" element={<Contact />} />
-          <Route path="/privacy" element={<Privacy />} />
-          <Route path="/terms" element={<Terms />} />
-          <Route path="/disclaimer" element={<Disclaimer />} />
+          <Route
+            path="/"
+            element={<Home />}
+          />
+
+          <Route
+            path="/about"
+            element={<About />}
+          />
+
+          <Route
+            path="/contact"
+            element={<Contact />}
+          />
+
+          <Route
+            path="/privacy"
+            element={<Privacy />}
+          />
+
+          <Route
+            path="/terms"
+            element={<Terms />}
+          />
+
+          <Route
+            path="/disclaimer"
+            element={<Disclaimer />}
+          />
 
         </Routes>
+
       </main>
+
+      {/* FOOTER */}
 
       <Footer />
 
     </div>
+
   );
 }
