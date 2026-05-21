@@ -98,7 +98,7 @@ export default function Home() {
 
           <div className="hero-grid">
 
-            {/* LEFT */}
+            {/* LEFT SIDE */}
 
             <div className="hero-left">
 
@@ -107,33 +107,32 @@ export default function Home() {
               </span>
 
               <h1>
-                Generate Engineering
-                Projects Using AI
+                Generate Smart
+                Engineering Projects
+                Using AI
               </h1>
 
               <p>
                 Build innovative engineering
-                projects, architecture,
+                projects, workflows,
                 implementation plans,
-                workflows, and technical
+                architecture, and technical
                 documentation instantly
-                using advanced AI technology.
+                using advanced AI tools.
               </p>
 
               <button className="hero-btn">
-
-                Start Building
-
+                Explore Platform
               </button>
 
             </div>
 
-            {/* RIGHT IMAGE */}
+            {/* RIGHT SIDE */}
 
             <div className="hero-right">
 
               <img
-                src="https://images.unsplash.com/photo-1677442136019-21780ecad995?q=80&w=1400&auto=format&fit=crop"
+                src="https://images.unsplash.com/photo-1526379095098-d400fd0bf935?q=80&w=1400&auto=format&fit=crop"
                 alt="AI Technology"
               />
 
@@ -143,7 +142,7 @@ export default function Home() {
 
         </section>
 
-        {/* FORM SECTION */}
+        {/* PROJECT FORM */}
 
         <section className="form-card">
 
@@ -191,7 +190,7 @@ export default function Home() {
 
             </div>
 
-            {/* DIFFICULTY */}
+            {/* LEVEL */}
 
             <div className="field">
 
@@ -248,7 +247,7 @@ export default function Home() {
 
         </section>
 
-        {/* FEATURES */}
+        {/* FEATURE SECTION */}
 
         <section className="features">
 
@@ -259,10 +258,10 @@ export default function Home() {
             </h3>
 
             <p>
-              Generate smart and innovative
-              engineering project ideas
-              tailored to your department
-              and technology stack.
+              Generate innovative engineering
+              project ideas instantly
+              based on your department,
+              technology, and academic level.
             </p>
 
           </div>
@@ -274,10 +273,10 @@ export default function Home() {
             </h3>
 
             <p>
-              Receive complete project
-              workflows, modules,
+              Receive complete workflows,
               architecture planning,
-              and implementation guidance.
+              modules, implementation steps,
+              and development guidance.
             </p>
 
           </div>
@@ -289,17 +288,65 @@ export default function Home() {
             </h3>
 
             <p>
-              Supports Artificial Intelligence,
-              IoT, Cloud Computing,
-              Cybersecurity, Blockchain,
-              Robotics, and more.
+              Supports AI, Machine Learning,
+              Cloud Computing, IoT,
+              Blockchain, Robotics,
+              and Cybersecurity projects.
             </p>
 
           </div>
 
         </section>
 
-        {/* RESULT SECTION */}
+        {/* SAMPLE PROJECTS */}
+
+        <section className="features">
+
+          <div className="feature-box">
+
+            <h3>
+              AI Chatbot Assistant
+            </h3>
+
+            <p>
+              Intelligent chatbot system
+              using NLP and Machine Learning
+              for customer interaction.
+            </p>
+
+          </div>
+
+          <div className="feature-box">
+
+            <h3>
+              Smart Traffic System
+            </h3>
+
+            <p>
+              AI-powered traffic monitoring
+              and signal optimization
+              using computer vision.
+            </p>
+
+          </div>
+
+          <div className="feature-box">
+
+            <h3>
+              IoT Smart Farming
+            </h3>
+
+            <p>
+              Automated irrigation and
+              crop monitoring system
+              using IoT sensors.
+            </p>
+
+          </div>
+
+        </section>
+
+        {/* RESULT */}
 
         {
           result && (

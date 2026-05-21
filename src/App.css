@@ -17,7 +17,7 @@
 
 .navbar-container{
 
-  max-width:1280px;
+  max-width:1200px;
 
   margin:auto;
 
@@ -27,7 +27,7 @@
 
   justify-content:space-between;
 
-  padding:18px 30px;
+  padding:18px 20px;
 }
 
 /* LOGO */
@@ -51,60 +51,39 @@
 
   align-items:center;
 
-  gap:42px;
+  gap:30px;
 }
 
 /* LINK */
 
-.nav-links a{
-
-  position:relative;
+.nav-links a,
+.nav-btn{
 
   color:#111827;
 
-  font-size:16px;
+  font-size:15px;
 
-  font-weight:500;
+  font-weight:600;
 
   transition:.3s;
+
+  background:none;
+
+  border:none;
+
+  cursor:pointer;
 }
 
-.nav-links a:hover{
+.nav-links a:hover,
+.nav-btn:hover{
 
   color:#6366f1;
 }
 
-/* DOT BUTTON */
+/* DROPDOWN */
 
 .dropdown{
   position:relative;
-}
-
-.dropdown-btn{
-
-  width:42px;
-  height:42px;
-
-  border:none;
-
-  border-radius:12px;
-
-  background:#f3f4f6;
-
-  cursor:pointer;
-
-  font-size:26px;
-
-  color:#111827;
-
-  transition:.3s;
-}
-
-.dropdown-btn:hover{
-
-  background:#6366f1;
-
-  color:white;
 }
 
 /* MENU */
@@ -113,10 +92,10 @@
 
   position:absolute;
 
-  top:52px;
-  right:0;
+  top:45px;
+  left:0;
 
-  width:240px;
+  width:260px;
 
   background:white;
 
@@ -138,7 +117,7 @@
   display:flex;
 }
 
-/* MENU LINKS */
+/* DROPDOWN LINKS */
 
 .dropdown-content a{
 

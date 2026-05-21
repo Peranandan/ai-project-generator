@@ -3,7 +3,8 @@ import { useState } from "react";
 
 export default function Navbar() {
 
-  const [menuOpen, setMenuOpen] = useState(false);
+  const [menuOpen, setMenuOpen] =
+    useState(false);
 
   return (
 
@@ -29,51 +30,55 @@ export default function Navbar() {
             About
           </Link>
 
-          <Link to="/contact">
-            Contact
-          </Link>
-
-          <Link to="/">
-            Projects
-          </Link>
-
-          <Link to="/">
-            Features
-          </Link>
-
-          <Link to="/">
-            Blogs
-          </Link>
-
-          {/* 3 DOT MENU */}
+          {/* PROJECTS */}
 
           <div className="dropdown">
 
-            <button className="dropdown-btn">
-              ⋯
+            <button className="nav-btn">
+              Projects
             </button>
 
             <div className="dropdown-content">
 
-              <Link to="/privacy">
-                Privacy Policy
-              </Link>
+              <a href="#">
+                AI Chatbot System
+              </a>
 
-              <Link to="/terms">
-                Terms & Conditions
-              </Link>
+              <a href="#">
+                Smart Traffic Control
+              </a>
 
-              <Link to="/disclaimer">
-                Disclaimer
-              </Link>
+              <a href="#">
+                IoT Smart Farming
+              </a>
+
+              <a href="#">
+                Face Recognition Attendance
+              </a>
 
             </div>
 
           </div>
 
+          <Link to="/contact">
+            Contact
+          </Link>
+
+          <Link to="/privacy">
+            Privacy
+          </Link>
+
+          <Link to="/terms">
+            Terms
+          </Link>
+
+          <Link to="/disclaimer">
+            Disclaimer
+          </Link>
+
         </div>
 
-        {/* MOBILE BUTTON */}
+        {/* MOBILE */}
 
         <button
           className="mobile-menu-btn"
@@ -103,18 +108,6 @@ export default function Navbar() {
 
             <Link to="/contact">
               Contact
-            </Link>
-
-            <Link to="/">
-              Projects
-            </Link>
-
-            <Link to="/">
-              Features
-            </Link>
-
-            <Link to="/">
-              Blogs
             </Link>
 
             <Link to="/privacy">
