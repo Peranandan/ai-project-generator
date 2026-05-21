@@ -6,7 +6,7 @@ export default function Home() {
   const [technology, setTechnology] = useState("");
   const [level, setLevel] = useState("");
   const [loading, setLoading] = useState(false);
-  const [result, setResult] = useState(null);
+  const [result, setResult] = useState("");
 
   const API_URL =
     "https://ai-project-backend-pcuo.onrender.com/chat";
@@ -21,6 +21,7 @@ export default function Home() {
 
     try {
       setLoading(true);
+      setResult("");
 
       const res = await fetch(API_URL, {
         method: "POST",
@@ -30,12 +31,27 @@ export default function Home() {
         body: JSON.stringify({ message }),
       });
 
+      if (!res.ok) {
+        throw new Error("Server error");
+      }
+
       const data = await res.json();
 
-      setResult(data.response || "No response");
-    } catch (err) {
-      console.error(err);
-      alert("Backend connection failed");
+      console.log(data);
+
+      if (data.success && data.response) {
+        setResult(data.response);
+      } else if (data.reply) {
+        setResult(data.reply);
+      } else if (typeof data === "string") {
+        setResult(data);
+      } else {
+        setResult("No response generated.");
+      }
+
+    } catch (error) {
+      console.error(error);
+      setResult("Backend connection failed.");
     } finally {
       setLoading(false);
     }
@@ -51,8 +67,7 @@ export default function Home() {
           <h1>AI Project Generator</h1>
 
           <p>
-            Generate complete engineering projects
-            using AI
+            Generate complete engineering projects using AI
           </p>
         </div>
 
@@ -123,9 +138,24 @@ export default function Home() {
 
         </div>
 
+        {loading && (
+          <div className="loading-box">
+            <div className="spinner" />
+            <p>Generating your project...</p>
+          </div>
+        )}
+
         {result && (
           <div className="result-box">
-            <pre>{result}</pre>
+            <pre
+              style={{
+                whiteSpace: "pre-wrap",
+                lineHeight: "1.7",
+                fontSize: "14px",
+              }}
+            >
+              {result}
+            </pre>
           </div>
         )}
 
@@ -133,3 +163,4 @@ export default function Home() {
     </div>
   );
 }
+
