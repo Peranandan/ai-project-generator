@@ -21,9 +21,10 @@ export default function Footer() {
             </h2>
 
             <p>
-              Modern AI-powered platform for generating
-              engineering project ideas, workflows,
-              architecture, and implementation guidance.
+              Modern AI-powered platform for
+              generating engineering project ideas,
+              workflows, architecture, and technical
+              documentation instantly.
             </p>
 
           </div>
@@ -31,6 +32,8 @@ export default function Footer() {
           {/* LINKS */}
 
           <div className="footer-links-grid">
+
+            {/* MENU */}
 
             <div className="footer-links">
 
@@ -51,6 +54,8 @@ export default function Footer() {
               </Link>
 
             </div>
+
+            {/* LEGAL */}
 
             <div className="footer-links">
 

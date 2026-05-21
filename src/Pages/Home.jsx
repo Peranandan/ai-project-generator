@@ -22,19 +22,19 @@ export default function Home() {
 
   const generateProject = async () => {
 
-    if (
+    if(
       !department ||
       !technology ||
       !level
-    ) {
+    ){
       alert("Please fill all fields");
       return;
     }
 
     const message =
-      `Dept:${department} Tech:${technology} Level:${level} project`;
+      `Generate ${level} level ${technology} engineering projects for ${department}`;
 
-    try {
+    try{
 
       setLoading(true);
 
@@ -70,9 +70,9 @@ export default function Home() {
 
       }
 
-    } catch(err){
+    } catch(error){
 
-      console.error(err);
+      console.error(error);
 
       setResult(
         "Backend connection failed."
@@ -92,7 +92,7 @@ export default function Home() {
 
       <div className="container">
 
-        {/* HERO */}
+        {/* HERO SECTION */}
 
         <section className="hero">
 
@@ -112,26 +112,29 @@ export default function Home() {
               </h1>
 
               <p>
-                Create innovative engineering
-                project ideas, architecture,
-                workflows, implementation plans,
-                and documentation instantly using
-                advanced artificial intelligence.
+                Build innovative engineering
+                projects, architecture,
+                implementation plans,
+                workflows, and technical
+                documentation instantly
+                using advanced AI technology.
               </p>
 
               <button className="hero-btn">
-                Start Generating
+
+                Start Building
+
               </button>
 
             </div>
 
-            {/* RIGHT */}
+            {/* RIGHT IMAGE */}
 
             <div className="hero-right">
 
               <img
-                src="https://images.unsplash.com/photo-1675557009875-436f5f8f4c78?q=80&w=1400&auto=format&fit=crop"
-                alt="AI Robot"
+                src="https://images.unsplash.com/photo-1677442136019-21780ecad995?q=80&w=1400&auto=format&fit=crop"
+                alt="AI Technology"
               />
 
             </div>
@@ -140,7 +143,7 @@ export default function Home() {
 
         </section>
 
-        {/* FORM */}
+        {/* FORM SECTION */}
 
         <section className="form-card">
 
@@ -156,7 +159,7 @@ export default function Home() {
 
               <input
                 type="text"
-                placeholder="e.g. CSE"
+                placeholder="e.g. Computer Science"
                 value={department}
                 onChange={(e)=>
                   setDepartment(
@@ -188,7 +191,7 @@ export default function Home() {
 
             </div>
 
-            {/* LEVEL */}
+            {/* DIFFICULTY */}
 
             <div className="field">
 
@@ -252,14 +255,14 @@ export default function Home() {
           <div className="feature-box">
 
             <h3>
-              Smart AI Generation
+              AI Project Ideas
             </h3>
 
             <p>
-              Generate complete engineering
-              projects instantly using
-              advanced AI technology with
-              detailed implementation guidance.
+              Generate smart and innovative
+              engineering project ideas
+              tailored to your department
+              and technology stack.
             </p>
 
           </div>
@@ -267,14 +270,14 @@ export default function Home() {
           <div className="feature-box">
 
             <h3>
-              Multiple Technologies
+              Smart Architecture
             </h3>
 
             <p>
-              Supports AI, IoT, Cloud,
-              Blockchain, Robotics,
-              Embedded Systems,
-              Web Development, and more.
+              Receive complete project
+              workflows, modules,
+              architecture planning,
+              and implementation guidance.
             </p>
 
           </div>
@@ -282,26 +285,35 @@ export default function Home() {
           <div className="feature-box">
 
             <h3>
-              Architecture & Workflow
+              Latest Technologies
             </h3>
 
             <p>
-              Get project architecture,
-              components, workflows,
-              modules, and implementation
-              planning automatically.
+              Supports Artificial Intelligence,
+              IoT, Cloud Computing,
+              Cybersecurity, Blockchain,
+              Robotics, and more.
             </p>
 
           </div>
 
         </section>
 
-        {/* RESULT */}
+        {/* RESULT SECTION */}
 
         {
           result && (
 
             <section className="result-box">
+
+              <h2
+                style={{
+                  marginBottom:"20px",
+                  color:"#0f172a",
+                }}
+              >
+                Generated Response
+              </h2>
 
               <pre>
                 {result}
@@ -315,5 +327,6 @@ export default function Home() {
       </div>
 
     </div>
+
   );
 }
