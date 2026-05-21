@@ -30,55 +30,41 @@ export default function App() {
 
       <Navbar />
 
-      {/* MAIN CONTENT */}
+      {/* MAIN */}
 
       <main className="main-content fade-in">
 
         <Routes>
-
-          {/* HOME */}
 
           <Route
             path="/"
             element={<Home />}
           />
 
-          {/* ABOUT */}
-
           <Route
             path="/about"
             element={<About />}
           />
-
-          {/* BLOGS */}
 
           <Route
             path="/blogs"
             element={<Blogs />}
           />
 
-          {/* CONTACT */}
-
           <Route
             path="/contact"
             element={<Contact />}
           />
-
-          {/* PRIVACY */}
 
           <Route
             path="/privacy"
             element={<Privacy />}
           />
 
-          {/* TERMS */}
-
           <Route
             path="/terms"
             element={<Terms />}
           />
-
-          {/* DISCLAIMER */}
 
           <Route
             path="/disclaimer"
