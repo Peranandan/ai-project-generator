@@ -2,20 +2,31 @@ import { useState } from "react";
 
 export default function Home() {
 
-  const [department, setDepartment] = useState("");
-  const [technology, setTechnology] = useState("");
-  const [level, setLevel] = useState("");
+  const [department, setDepartment] =
+    useState("");
 
-  const [loading, setLoading] = useState(false);
+  const [technology, setTechnology] =
+    useState("");
 
-  const [result, setResult] = useState("");
+  const [level, setLevel] =
+    useState("");
+
+  const [loading, setLoading] =
+    useState(false);
+
+  const [result, setResult] =
+    useState("");
 
   const API_URL =
     "https://ai-project-backend-pcuo.onrender.com/chat";
 
   const generateProject = async () => {
 
-    if (!department || !technology || !level) {
+    if (
+      !department ||
+      !technology ||
+      !level
+    ) {
       alert("Please fill all fields");
       return;
     }
@@ -29,43 +40,50 @@ export default function Home() {
 
       const res = await fetch(API_URL, {
 
-        method: "POST",
+        method:"POST",
 
-        headers: {
-          "Content-Type": "application/json",
+        headers:{
+          "Content-Type":"application/json",
         },
 
-        body: JSON.stringify({ message }),
+        body:JSON.stringify({
+          message,
+        }),
 
       });
 
       const data = await res.json();
 
-      if (data.response) {
+      if(data.response){
 
         setResult(data.response);
 
-      }
-      else if (data.detail) {
+      } else if(data.detail){
 
         setResult(data.detail);
 
+      } else {
+
+        setResult(
+          "No response generated."
+        );
+
       }
-      else {
 
-        setResult("No response generated.");
+    } catch(err){
 
-      }
+      console.error(err);
 
-    } catch (err) {
-
-      setResult("Backend connection failed.");
+      setResult(
+        "Backend connection failed."
+      );
 
     } finally {
 
       setLoading(false);
 
     }
+
   };
 
   return (
@@ -84,25 +102,25 @@ export default function Home() {
 
             <div className="hero-left">
 
-              <div className="badge">
-                ⚡ AI Powered Engineering Assistant
-              </div>
+              <span className="badge">
+                ⚡ AI Powered Engineering Platform
+              </span>
 
               <h1>
-                Generate Engineering Projects Using AI
+                Generate Engineering
+                Projects Using AI
               </h1>
 
               <p>
-                Create innovative engineering projects,
-                architecture, implementation steps,
-                and code instantly using AI technology.
+                Create innovative engineering
+                project ideas, architecture,
+                workflows, implementation plans,
+                and documentation instantly using
+                advanced artificial intelligence.
               </p>
 
-              <button
-                className="hero-btn"
-                onClick={generateProject}
-              >
-                🚀 Start Generating
+              <button className="hero-btn">
+                Start Generating
               </button>
 
             </div>
@@ -112,8 +130,8 @@ export default function Home() {
             <div className="hero-right">
 
               <img
-                src="https://images.unsplash.com/photo-1677442136019-21780ecad995?q=80&w=1200&auto=format&fit=crop"
-                alt="AI Dashboard"
+                src="https://images.unsplash.com/photo-1675557009875-436f5f8f4c78?q=80&w=1400&auto=format&fit=crop"
+                alt="AI Robot"
               />
 
             </div>
@@ -128,6 +146,8 @@ export default function Home() {
 
           <div className="form-grid">
 
+            {/* DEPARTMENT */}
+
             <div className="field">
 
               <label>
@@ -138,12 +158,16 @@ export default function Home() {
                 type="text"
                 placeholder="e.g. CSE"
                 value={department}
-                onChange={(e) =>
-                  setDepartment(e.target.value)
+                onChange={(e)=>
+                  setDepartment(
+                    e.target.value
+                  )
                 }
               />
 
             </div>
+
+            {/* TECHNOLOGY */}
 
             <div className="field">
 
@@ -153,14 +177,18 @@ export default function Home() {
 
               <input
                 type="text"
-                placeholder="e.g. AI, IoT, Blockchain"
+                placeholder="e.g. AI, IoT, Cloud"
                 value={technology}
-                onChange={(e) =>
-                  setTechnology(e.target.value)
+                onChange={(e)=>
+                  setTechnology(
+                    e.target.value
+                  )
                 }
               />
 
             </div>
+
+            {/* LEVEL */}
 
             <div className="field">
 
@@ -170,8 +198,10 @@ export default function Home() {
 
               <select
                 value={level}
-                onChange={(e) =>
-                  setLevel(e.target.value)
+                onChange={(e)=>
+                  setLevel(
+                    e.target.value
+                  )
                 }
               >
 
@@ -195,21 +225,23 @@ export default function Home() {
 
             </div>
 
+            {/* BUTTON */}
+
+            <button
+              className="generate-btn"
+              onClick={generateProject}
+              disabled={loading}
+            >
+
+              {
+                loading
+                ? "Generating..."
+                : "⚡ Generate Project"
+              }
+
+            </button>
+
           </div>
-
-          <button
-            className="generate-btn"
-            onClick={generateProject}
-            disabled={loading}
-          >
-
-            {
-              loading
-              ? "Generating..."
-              : "⚡ Generate Project"
-            }
-
-          </button>
 
         </section>
 
@@ -220,12 +252,14 @@ export default function Home() {
           <div className="feature-box">
 
             <h3>
-              ⚡ AI Generated
+              Smart AI Generation
             </h3>
 
             <p>
               Generate complete engineering
-              project ideas instantly.
+              projects instantly using
+              advanced AI technology with
+              detailed implementation guidance.
             </p>
 
           </div>
@@ -233,12 +267,14 @@ export default function Home() {
           <div className="feature-box">
 
             <h3>
-              📚 Smart Workflow
+              Multiple Technologies
             </h3>
 
             <p>
-              Save research time with AI-powered
-              project planning assistance.
+              Supports AI, IoT, Cloud,
+              Blockchain, Robotics,
+              Embedded Systems,
+              Web Development, and more.
             </p>
 
           </div>
@@ -246,12 +282,14 @@ export default function Home() {
           <div className="feature-box">
 
             <h3>
-              🚀 Modern Technologies
+              Architecture & Workflow
             </h3>
 
             <p>
-              Supports AI, ML, IoT, Cloud,
-              Blockchain, Robotics, and more.
+              Get project architecture,
+              components, workflows,
+              modules, and implementation
+              planning automatically.
             </p>
 
           </div>
@@ -263,13 +301,13 @@ export default function Home() {
         {
           result && (
 
-            <div className="result-box">
+            <section className="result-box">
 
               <pre>
                 {result}
               </pre>
 
-            </div>
+            </section>
 
           )
         }
@@ -277,6 +315,5 @@ export default function Home() {
       </div>
 
     </div>
-
   );
 }

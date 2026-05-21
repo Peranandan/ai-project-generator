@@ -17,7 +17,7 @@ export default function Navbar() {
           ⚡ AI Project Generator
         </Link>
 
-        {/* DESKTOP NAVIGATION */}
+        {/* DESKTOP MENU */}
 
         <div className="nav-links">
 
@@ -33,12 +33,24 @@ export default function Navbar() {
             Contact
           </Link>
 
-          {/* DROPDOWN */}
+          <Link to="/">
+            Projects
+          </Link>
+
+          <Link to="/">
+            Features
+          </Link>
+
+          <Link to="/">
+            Blogs
+          </Link>
+
+          {/* 3 DOT MENU */}
 
           <div className="dropdown">
 
             <button className="dropdown-btn">
-              More ▾
+              ⋯
             </button>
 
             <div className="dropdown-content">
@@ -61,7 +73,7 @@ export default function Navbar() {
 
         </div>
 
-        {/* MOBILE MENU BUTTON */}
+        {/* MOBILE BUTTON */}
 
         <button
           className="mobile-menu-btn"
@@ -91,6 +103,18 @@ export default function Navbar() {
 
             <Link to="/contact">
               Contact
+            </Link>
+
+            <Link to="/">
+              Projects
+            </Link>
+
+            <Link to="/">
+              Features
+            </Link>
+
+            <Link to="/">
+              Blogs
             </Link>
 
             <Link to="/privacy">
