@@ -9,6 +9,10 @@ import Contact from "./pages/Contact";
 import Privacy from "./pages/Privacy";
 import Terms from "./pages/Terms";
 import Disclaimer from "./pages/Disclaimer";
+import Blogs from "./pages/Blogs";
+
+import "./App.css";
+import "./markdown.css";
 
 export default function App() {
 
@@ -16,13 +20,19 @@ export default function App() {
 
     <div className="app-layout">
 
+      {/* BACKGROUND */}
+
+      <div className="bg-blur blur-one"></div>
+
+      <div className="bg-blur blur-two"></div>
+
       {/* NAVBAR */}
 
       <Navbar />
 
       {/* MAIN */}
 
-      <main className="main-content">
+      <main className="main-content fade-in">
 
         <Routes>
 
@@ -34,6 +44,11 @@ export default function App() {
           <Route
             path="/about"
             element={<About />}
+          />
+
+          <Route
+            path="/blogs"
+            element={<Blogs />}
           />
 
           <Route
@@ -65,6 +80,5 @@ export default function App() {
       <Footer />
 
     </div>
-
   );
 }
