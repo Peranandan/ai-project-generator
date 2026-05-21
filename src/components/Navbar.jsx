@@ -6,6 +6,9 @@ export default function Navbar() {
   const [menuOpen, setMenuOpen] =
     useState(false);
 
+  const [projectOpen, setProjectOpen] =
+    useState(false);
+
   return (
 
     <nav className="navbar">
@@ -21,7 +24,7 @@ export default function Navbar() {
           ⚡ AI Project Generator
         </Link>
 
-        {/* DESKTOP LINKS */}
+        {/* NAVIGATION */}
 
         <div className="nav-links">
 
@@ -37,45 +40,56 @@ export default function Navbar() {
 
           <div className="dropdown">
 
-            <button className="nav-btn">
-              Projects
+            <button
+              className="nav-btn"
+              onClick={() =>
+                setProjectOpen(!projectOpen)
+              }
+            >
+              Projects ▾
             </button>
 
-            <div className="dropdown-content">
+            {
+              projectOpen && (
 
-              <a href="#">
-                🤖 AI Chatbot Assistant
-              </a>
+                <div className="dropdown-content">
 
-              <a href="#">
-                🚦 Smart Traffic Control
-              </a>
+                  <Link to="/">
+                    🤖 AI Chatbot Assistant
+                  </Link>
 
-              <a href="#">
-                🌱 IoT Smart Farming
-              </a>
+                  <Link to="/">
+                    🚦 Traffic Monitoring System
+                  </Link>
 
-              <a href="#">
-                🎓 Face Recognition Attendance
-              </a>
+                  <Link to="/">
+                    🌱 IoT Smart Farming
+                  </Link>
 
-              <a href="#">
-                ☁ Cloud File Storage System
-              </a>
+                  <Link to="/">
+                    🎓 Face Attendance System
+                  </Link>
 
-              <a href="#">
-                🔐 Cybersecurity Threat Detection
-              </a>
+                  <Link to="/">
+                    ☁ Cloud Storage Platform
+                  </Link>
 
-              <a href="#">
-                🏥 AI Healthcare Monitoring
-              </a>
+                  <Link to="/">
+                    🔐 Cybersecurity Detection
+                  </Link>
 
-              <a href="#">
-                📡 Smart Home Automation
-              </a>
+                  <Link to="/">
+                    🏥 Healthcare Monitoring
+                  </Link>
 
-            </div>
+                  <Link to="/">
+                    📡 Home Automation
+                  </Link>
+
+                </div>
+
+              )
+            }
 
           </div>
 
