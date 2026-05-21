@@ -17,7 +17,8 @@ export default function Home() {
       return;
     }
 
-    const message = `Dept:${department} Tech:${technology} Level:${level} project`;
+    const message =
+      `Dept:${department} Tech:${technology} Level:${level} project`;
 
     try {
       setLoading(true);
@@ -32,21 +33,27 @@ export default function Home() {
       });
 
       if (!res.ok) {
-        throw new Error("Server error");
+        throw new Error("Server Error");
       }
 
       const data = await res.json();
 
-      console.log(data);
+      console.log("BACKEND RESPONSE:", data);
 
-      if (data.success && data.response) {
+      if (data.response) {
         setResult(data.response);
-      } else if (data.reply) {
+      }
+      else if (data.reply) {
         setResult(data.reply);
-      } else if (typeof data === "string") {
+      }
+      else if (data.message) {
+        setResult(data.message);
+      }
+      else if (typeof data === "string") {
         setResult(data);
-      } else {
-        setResult("No response generated.");
+      }
+      else {
+        setResult(JSON.stringify(data, null, 2));
       }
 
     } catch (error) {
