@@ -280,32 +280,31 @@ body {
 }
 
 /* Copy Button */
-.copy-btn {
-  display: flex;
-  align-items: center;
-  gap: 4px;
-  padding: 4px 12px;
-  font-size: 12px;
-  border-radius: 6px;
-  border: 1px solid #e5e7eb;
-  background: #f9fafb;
-  color: #6b7280;
-  cursor: pointer;
-  transition: all 0.15s;
-  font-family: inherit;
-  font-weight: 500;
-  white-space: nowrap;
-  flex-shrink: 0;
+.copy-btn{
+  background:#000000 !important;
+  color:#ffffff !important;
+  border:2px solid #000000 !important;
+  border-radius:8px;
+  padding:7px 16px;
+  font-size:13px;
+  font-weight:600;
+  cursor:pointer;
+  transition:0.2s;
+  white-space:nowrap;
+  font-family:"Inter",sans-serif;
+  flex-shrink:0;
+  display:inline-block;
+  line-height:1;
 }
 
-.copy-btn:hover {
-  background: #f3f4f6;
-  border-color: #d1d5db;
-  color: #111111;
+.copy-btn:hover{
+  background:#222222 !important;
+  color:#ffffff !important;
 }
 
-.copy-btn:active {
-  transform: scale(0.96);
+.copy-btn-done{
+  background:#000000 !important;
+  color:#ffffff !important;
 }
 
 /* Section Content */
