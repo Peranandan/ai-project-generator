@@ -24,7 +24,7 @@ export default function Navbar() {
           ⚡ AI Project Generator
         </Link>
 
-        {/* LINKS */}
+        {/* NAV LINKS */}
 
         <div className="nav-links">
 
@@ -41,7 +41,7 @@ export default function Navbar() {
           <div className="dropdown">
 
             <button
-              className="nav-btn"
+              className="nav-btn project-btn"
               onClick={() =>
                 setProjectOpen(!projectOpen)
               }
@@ -52,31 +52,107 @@ export default function Navbar() {
             {
               projectOpen && (
 
-                <div className="dropdown-content">
+                <div className="project-dropdown">
 
-                  <Link to="/">
-                    🤖 AI Chatbot Assistant
-                  </Link>
+                  {/* PROJECT 1 */}
 
-                  <Link to="/">
-                    🚦 Traffic Monitoring
-                  </Link>
+                  <div className="project-card">
 
-                  <Link to="/">
-                    🌱 IoT Smart Farming
-                  </Link>
+                    <img
+                      src="https://images.unsplash.com/photo-1677442136019-21780ecad995?q=80&w=1200&auto=format&fit=crop"
+                      alt="AI Chatbot"
+                    />
 
-                  <Link to="/">
-                    🎓 Face Attendance
-                  </Link>
+                    <div>
 
-                  <Link to="/">
-                    ☁ Cloud Storage
-                  </Link>
+                      <h4>
+                        AI Chatbot Assistant
+                      </h4>
 
-                  <Link to="/">
-                    🔐 Cybersecurity
-                  </Link>
+                      <p>
+                        Intelligent chatbot using
+                        NLP and Machine Learning
+                        for customer support.
+                      </p>
+
+                    </div>
+
+                  </div>
+
+                  {/* PROJECT 2 */}
+
+                  <div className="project-card">
+
+                    <img
+                      src="https://images.unsplash.com/photo-1451187580459-43490279c0fa?q=80&w=1200&auto=format&fit=crop"
+                      alt="Traffic"
+                    />
+
+                    <div>
+
+                      <h4>
+                        Smart Traffic Monitoring
+                      </h4>
+
+                      <p>
+                        AI-powered traffic analysis
+                        system using cameras
+                        and real-time prediction.
+                      </p>
+
+                    </div>
+
+                  </div>
+
+                  {/* PROJECT 3 */}
+
+                  <div className="project-card">
+
+                    <img
+                      src="https://images.unsplash.com/photo-1518770660439-4636190af475?q=80&w=1200&auto=format&fit=crop"
+                      alt="IoT"
+                    />
+
+                    <div>
+
+                      <h4>
+                        IoT Smart Farming
+                      </h4>
+
+                      <p>
+                        Smart agriculture platform
+                        using sensors and cloud
+                        monitoring systems.
+                      </p>
+
+                    </div>
+
+                  </div>
+
+                  {/* PROJECT 4 */}
+
+                  <div className="project-card">
+
+                    <img
+                      src="https://images.unsplash.com/photo-1516321318423-f06f85e504b3?q=80&w=1200&auto=format&fit=crop"
+                      alt="Cybersecurity"
+                    />
+
+                    <div>
+
+                      <h4>
+                        Cybersecurity Detection
+                      </h4>
+
+                      <p>
+                        Advanced threat detection
+                        platform using Artificial
+                        Intelligence algorithms.
+                      </p>
+
+                    </div>
+
+                  </div>
 
                 </div>
 

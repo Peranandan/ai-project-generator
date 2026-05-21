@@ -5,11 +5,11 @@ import Footer from "./components/Footer";
 
 import Home from "./pages/Home";
 import About from "./pages/About";
+import Blogs from "./pages/Blogs";
 import Contact from "./pages/Contact";
 import Privacy from "./pages/Privacy";
 import Terms from "./pages/Terms";
 import Disclaimer from "./pages/Disclaimer";
-import Blogs from "./pages/Blogs";
 
 import "./App.css";
 import "./markdown.css";
@@ -20,7 +20,7 @@ export default function App() {
 
     <div className="app-layout">
 
-      {/* BACKGROUND */}
+      {/* BACKGROUND EFFECTS */}
 
       <div className="bg-blur blur-one"></div>
 
@@ -30,41 +30,55 @@ export default function App() {
 
       <Navbar />
 
-      {/* MAIN */}
+      {/* MAIN CONTENT */}
 
       <main className="main-content fade-in">
 
         <Routes>
+
+          {/* HOME */}
 
           <Route
             path="/"
             element={<Home />}
           />
 
+          {/* ABOUT */}
+
           <Route
             path="/about"
             element={<About />}
           />
+
+          {/* BLOGS */}
 
           <Route
             path="/blogs"
             element={<Blogs />}
           />
 
+          {/* CONTACT */}
+
           <Route
             path="/contact"
             element={<Contact />}
           />
+
+          {/* PRIVACY */}
 
           <Route
             path="/privacy"
             element={<Privacy />}
           />
 
+          {/* TERMS */}
+
           <Route
             path="/terms"
             element={<Terms />}
           />
+
+          {/* DISCLAIMER */}
 
           <Route
             path="/disclaimer"
